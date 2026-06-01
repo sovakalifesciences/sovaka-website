@@ -26,8 +26,7 @@ jobs:
         env:
           NEXT_PUBLIC_FORMSPREE_FORM_ID: ${{ secrets.NEXT_PUBLIC_FORMSPREE_FORM_ID }}
 
-      - name: Clean up debug text files
-        run: find ./out -name "*.txt" -not -name "robots.txt" -type f -delete
+
 
       - name: Deploy via FTP to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
