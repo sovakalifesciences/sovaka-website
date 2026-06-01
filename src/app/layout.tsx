@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "Nidaan Dental Pune",
   ],
   alternates: {
-    canonical: "./",
+    canonical: "https://sovakalifesciences.com",
   },
   openGraph: {
     title: "SOVAKA LifeSciences | Dental Imaging Infrastructure, Training & AI Ecosystem",
@@ -41,10 +41,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo.png",
-        width: 800,
-        height: 600,
-        alt: "SOVAKA LifeSciences Logo",
+        url: "/sovaka-og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "SOVAKA LifeSciences - Dental Imaging Infrastructure, Training & AI Ecosystem",
       },
     ],
   },
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SOVAKA LifeSciences | Dental Imaging Infrastructure, Training & AI Ecosystem",
     description: "SOVAKA LifeSciences unifies dental imaging infrastructure, teleradiology workflows, technician training, and AI software to modernize oral radiology.",
-    images: ["/logo.png"],
+    images: ["/sovaka-og-image.png"],
   },
 };
 
