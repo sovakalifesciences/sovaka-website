@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 
+ * Lock site to premium light editorial mode.
+ * dark: variants only apply when .dark class is on html — which we never set.
+ */
+@variant dark (&:where(.dark, .dark *));
+
+/* Lock site to light mode - premium editorial aesthetic */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  color-scheme: light;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sand-50: #F0EBE1;
+  --color-sand-100: #E6DFD3;
+  --color-sand-200: #D8CFC0;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
