@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -125,7 +126,76 @@ export default function RootLayout({
       style={{ colorScheme: "light" }}
       suppressHydrationWarning
     >
+      <head>
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-W52S7MQG');
+
+              document.addEventListener('click', function(e) {
+                var anchor = e.target.closest('a');
+                if (!anchor) return;
+                var href = anchor.getAttribute('href');
+                if (!href) return;
+                window.dataLayer = window.dataLayer || [];
+                
+                if (href.indexOf('forms.gle/geqADY2PEuscsvyb9') > -1) {
+                  window.dataLayer.push({
+                    event: 'franchise_form_submission',
+                    formType: 'franchise',
+                    method: 'outbound_click'
+                  });
+                } else if (href.indexOf('forms.gle/vGUGby9hmxY3wDTW8') > -1) {
+                  window.dataLayer.push({
+                    event: 'technician_form_submission',
+                    formType: 'technician',
+                    method: 'outbound_click'
+                  });
+                } else if (href.indexOf('forms.gle/icf1jPDAn3brd1gE6') > -1) {
+                  window.dataLayer.push({
+                    event: 'investor_form_submission',
+                    formType: 'investor',
+                    method: 'outbound_click'
+                  });
+                } else if (href.indexOf('mailto:') === 0) {
+                  window.dataLayer.push({
+                    event: 'email_click',
+                    email: href.replace('mailto:', ''),
+                    method: 'mailto_click'
+                  });
+                } else if (href.indexOf('tel:') === 0) {
+                  window.dataLayer.push({
+                    event: 'phone_click',
+                    phone: href.replace('tel:', ''),
+                    method: 'tel_click'
+                  });
+                } else if (href.indexOf('http') === 0 && href.indexOf('sovakalifesciences.com') === -1 && href.indexOf('localhost') === -1) {
+                  window.dataLayer.push({
+                    event: 'outbound_link_click',
+                    destination: href,
+                    method: 'outbound_click'
+                  });
+                }
+              });
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-white">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-W52S7MQG"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}

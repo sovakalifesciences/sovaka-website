@@ -41,6 +41,14 @@ function ContactForm() {
       });
 
       if (response.ok) {
+        if (typeof window !== "undefined") {
+          const dataLayer = (window as any).dataLayer || [];
+          (window as any).dataLayer = dataLayer;
+          dataLayer.push({
+            event: "contact_form_submission",
+            formType: context || "general"
+          });
+        }
         setSubmitted(true);
         setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
