@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About SOVAKA Lifesciences | Parent Dental Imaging Ecosystem",
-  description: "SOVAKA Lifesciences is a parent dental diagnostics company building intelligent imaging infrastructure, centralized OMR reporting workflows, and AI-enabled software.",
+  title: "About SOVAKA LifeSciences | Building the Future of Dental Imaging",
+  description: "Learn about SOVAKA LifeSciences. We are building the future infrastructure, centralized oral radiology workflows, and workforce pipelines for modern dentistry.",
   alternates: {
     canonical: "https://sovakalifesciences.com/about",
   },
   openGraph: {
-    title: "About SOVAKA Lifesciences | Parent Dental Imaging Ecosystem",
-    description: "Discover our multi-layered infrastructure model, clinical heritage, and strategic vision for technology-enabled dentistry.",
+    title: "About SOVAKA LifeSciences | Building the Future of Dental Imaging",
+    description: "Learn about SOVAKA LifeSciences. We are building the future infrastructure, centralized oral radiology workflows, and workforce pipelines for modern dentistry.",
     url: "https://sovakalifesciences.com/about",
     type: "website",
   },

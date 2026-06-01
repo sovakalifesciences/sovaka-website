@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://sovakalifesciences.com"),
   title: {
-    default: "SOVAKA Lifesciences | Connected Dental Imaging Ecosystem",
-    template: "%s | SOVAKA Lifesciences",
+    default: "SOVAKA LifeSciences | Dental Imaging Infrastructure, Training & AI Ecosystem",
+    template: "%s | SOVAKA LifeSciences",
   },
-  description: "SOVAKA Lifesciences (OPC) Pvt. Ltd. unifies dental imaging infrastructure, centralized teleradiology OMR reporting workflows, technician training pipelines, and future-ready AI software.",
+  description: "SOVAKA LifeSciences unifies dental imaging infrastructure, teleradiology workflows, technician training, and AI software to modernize oral radiology.",
   keywords: [
     "CBCT & OPG Franchise",
     "Dental Imaging Franchise",
@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     canonical: "./",
   },
   openGraph: {
-    title: "SOVAKA Lifesciences | Connected Dental Imaging Ecosystem",
-    description: "Discover a connected ecosystem unifying Nidaan CBCT centres, specialist OMR workflows, and technology-enabled diagnostic operations.",
+    title: "SOVAKA LifeSciences | Dental Imaging Infrastructure, Training & AI Ecosystem",
+    description: "SOVAKA LifeSciences unifies dental imaging infrastructure, teleradiology workflows, technician training, and AI software to modernize oral radiology.",
     url: "https://sovakalifesciences.com",
-    siteName: "SOVAKA Lifesciences",
+    siteName: "SOVAKA LifeSciences",
     locale: "en_US",
     type: "website",
     images: [
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
         url: "/logo.png",
         width: 800,
         height: 600,
-        alt: "SOVAKA Lifesciences Logo",
+        alt: "SOVAKA LifeSciences Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SOVAKA Lifesciences | Connected Dental Imaging Ecosystem",
-    description: "Discover a connected ecosystem unifying Nidaan CBCT centres, specialist OMR workflows, and technology-enabled diagnostic operations.",
+    title: "SOVAKA LifeSciences | Dental Imaging Infrastructure, Training & AI Ecosystem",
+    description: "SOVAKA LifeSciences unifies dental imaging infrastructure, teleradiology workflows, technician training, and AI software to modernize oral radiology.",
     images: ["/logo.png"],
   },
 };

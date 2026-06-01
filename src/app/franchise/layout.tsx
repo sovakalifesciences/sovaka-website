@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CBCT & OPG Franchise | SOVAKA Lifesciences",
-  description: "Establish a standardized CBCT & OPG dental diagnostic imaging centre. Secure complete FOCO operational architecture, teleradiology PACS setups, and technician staffing.",
+  title: "Dental CBCT & OPG Franchise Opportunities | SOVAKA LifeSciences",
+  description: "Partner with SOVAKA LifeSciences. Open a premium dental CBCT & OPG imaging center with our operationally mature Franchise Owned Company Operated (FOCO) model.",
   alternates: {
     canonical: "https://sovakalifesciences.com/franchise",
   },
   openGraph: {
-    title: "CBCT & OPG Franchise | SOVAKA Lifesciences",
-    description: "Scale intelligent dental imaging infrastructure under our Franchise Owned Company Operated model. Backed by the 40+ year Nidaan legacy.",
+    title: "Dental CBCT & OPG Franchise Opportunities | SOVAKA LifeSciences",
+    description: "Partner with SOVAKA LifeSciences. Open a premium dental CBCT & OPG imaging center with our operationally mature Franchise Owned Company Operated (FOCO) model.",
     url: "https://sovakalifesciences.com/franchise",
     type: "website",
   },

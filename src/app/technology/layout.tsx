@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Dental Imaging Ecosystem & Technology Systems | SOVAKA",
-  description: "Explore the intelligent infrastructure layer for oral radiology. Connecting clinics with cloud PACS routing, OMR specialist networks, and AI-enabled diagnostics.",
+  title: "AI Ecosystem for Dental Imaging & Radiology | SOVAKA LifeSciences",
+  description: "Explore the SOVAKA LifeSciences AI Ecosystem. We develop intelligent software interfaces and centralized cloud workflows to modernize dental radiology diagnostics.",
   alternates: {
     canonical: "https://sovakalifesciences.com/technology",
   },
   openGraph: {
-    title: "AI Dental Imaging Ecosystem & Technology Systems | SOVAKA",
-    description: "Discover our connected imaging networks, workflow orchestration engines, and clinical AI integrations grounded in physical diagnostic operations.",
+    title: "AI Ecosystem for Dental Imaging & Radiology | SOVAKA LifeSciences",
+    description: "Explore the SOVAKA LifeSciences AI Ecosystem. We develop intelligent software interfaces and centralized cloud workflows to modernize dental radiology diagnostics.",
     url: "https://sovakalifesciences.com/technology",
     type: "website",
   },

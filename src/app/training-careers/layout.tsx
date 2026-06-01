@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dental Radiology Technician Training & Job Opportunities | SOVAKA Lifesciences",
-  description: "Gain hands-on clinical experience inside active Nidaan CBCT & OPG centres in Pune. 1-month practical training with job opportunities for high-performing candidates.",
+  title: "Dental Radiology Technician Training & Job Opportunities | SOVAKA LifeSciences",
+  description: "Apply for dental radiology technician training & job opportunities at SOVAKA LifeSciences. Get hands-on clinical skills at real imaging centers in Pune.",
   alternates: {
     canonical: "https://sovakalifesciences.com/training-careers",
   },
   openGraph: {
-    title: "Dental Radiology Technician Training & Job Opportunities | SOVAKA Lifesciences",
-    description: "Practical training inside active Nidaan CBCT & OPG Centres. Multilingual guidance, 1-month duration, and job opportunities for high-performing candidates.",
+    title: "Dental Radiology Technician Training & Job Opportunities | SOVAKA LifeSciences",
+    description: "Apply for dental radiology technician training & job opportunities at SOVAKA LifeSciences. Get hands-on clinical skills at real imaging centers in Pune.",
     url: "https://sovakalifesciences.com/training-careers",
     type: "website",
   },

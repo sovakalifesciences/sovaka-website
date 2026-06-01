@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact SOVAKA Lifesciences | Partnerships & Operations Gateway",
-  description: "Connect with our operational hubs, franchise coordination coordinators, or academic support teams in Pune, Maharashtra.",
+  title: "Contact SOVAKA LifeSciences",
+  description: "Get in touch with SOVAKA LifeSciences. Contact our team for general inquiries, dental imaging franchise details, radiology training, and support.",
   alternates: {
     canonical: "https://sovakalifesciences.com/contact",
   },
   openGraph: {
-    title: "Contact SOVAKA Lifesciences | Partnerships & Operations Gateway",
-    description: "Get in touch with the SOVAKA Lifesciences parent dental imaging ecosystem office.",
+    title: "Contact SOVAKA LifeSciences",
+    description: "Get in touch with SOVAKA LifeSciences. Contact our team for general inquiries, dental imaging franchise details, radiology training, and support.",
     url: "https://sovakalifesciences.com/contact",
     type: "website",
   },
