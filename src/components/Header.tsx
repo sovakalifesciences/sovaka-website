@@ -46,9 +46,11 @@ export default function Header() {
           <div className="flex justify-start w-[170px] xl:w-[180px] 2xl:w-[190px] shrink-0">
             <Link href="/" className="flex items-center group">
               <img 
-                src="/logo.png" 
+                src="/logo.webp" 
                 alt="SOVAKA Lifesciences" 
                 className="h-8 xl:h-[34px] 2xl:h-9 w-auto object-contain dark:invert" 
+                width={1024}
+                height={196}
               />
             </Link>
           </div>
@@ -117,9 +119,11 @@ export default function Header() {
               {/* Header inside Panel */}
               <div className="flex items-center justify-between mb-8 shrink-0">
                 <img 
-                  src="/logo.png" 
+                  src="/logo.webp" 
                   alt="SOVAKA Lifesciences" 
                   className="h-7 w-auto object-contain dark:invert" 
+                  width={1024}
+                  height={196}
                 />
                 <button
                   onClick={() => setMobileMenuOpen(false)}

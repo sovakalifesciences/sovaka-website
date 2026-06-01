@@ -194,7 +194,7 @@ export default function HeroSection() {
                   {/* Completely borderless and background-blended image wrapper */}
                   <div className="w-full h-full flex items-center justify-center">
                     <img
-                      src="/hero-ecosystem.jpg"
+                      src="/hero-ecosystem.webp"
                       alt="SOVAKA Dental Imaging Ecosystem"
                       className="w-full h-full object-contain select-none pointer-events-none rounded-none dark:invert dark:opacity-90 transition-all duration-300"
                       width={1024}

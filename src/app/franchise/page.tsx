@@ -20,9 +20,11 @@ export default function FranchisePage() {
               <div className="mb-10 space-y-4">
                 <div className="bg-transparent dark:bg-white dark:px-6 dark:py-4 dark:rounded-sm dark:border dark:border-zinc-200 inline-flex items-center justify-start w-fit">
                   <img 
-                    src="/nidaan-logo.png" 
+                    src="/nidaan-logo.webp" 
                     alt="Nidaan CBCT & OPG Centre" 
                     className="h-16 md:h-20 w-auto object-contain"
+                    width={1024}
+                    height={427}
                   />
                 </div>
                 {/* Legacy Statement */}

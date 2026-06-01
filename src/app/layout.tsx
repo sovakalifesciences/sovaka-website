@@ -65,7 +65,7 @@ const organizationJsonLd = {
   "url": "https://sovakalifesciences.com",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://sovakalifesciences.com/logo.png",
+    "url": "https://sovakalifesciences.com/logo.webp",
     "caption": "SOVAKA Lifesciences Logo"
   },
   "description": "Parent dental ecosystem company building intelligent dental imaging infrastructure, centralized oral radiology workflows, workforce development, and AI-enabled dentistry systems.",

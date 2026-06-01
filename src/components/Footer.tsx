@@ -67,9 +67,11 @@ export default function Footer() {
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div>
                 <img 
-                  src="/logo.png" 
+                  src="/logo.webp" 
                   alt="SOVAKA Lifesciences" 
                   className="h-8 w-auto object-contain mb-4 filter dark:invert" 
+                  width={1024}
+                  height={196}
                 />
                 <p className="text-[15px] text-[#666666] dark:text-zinc-400 max-w-[320px] leading-relaxed">
                   SOVAKA Lifesciences is building the future infrastructure, talent pipelines, and intelligent interfaces of dental radiology.

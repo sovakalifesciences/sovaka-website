@@ -415,9 +415,11 @@ export default function TrainingCareersPage() {
                     {activeContent.nidaanHeading}
                   </span>
                   <img 
-                    src="/nidaan-logo.png" 
+                    src="/nidaan-logo.webp" 
                     alt="Nidaan CBCT & OPG Centre" 
                     className="h-20 md:h-24 mx-auto object-contain dark:invert mb-6 transition-transform duration-300 group-hover:scale-105"
+                    width={1024}
+                    height={427}
                   />
                   <span className="block text-[11px] font-semibold text-[#1A1A1A] dark:text-zinc-300 tracking-wider uppercase mt-4 border-t border-zinc-150 dark:border-zinc-900 pt-4">
                     {activeContent.nidaanSub}
@@ -520,9 +522,11 @@ export default function TrainingCareersPage() {
                     className="absolute left-[5%] top-[20px] md:left-[0%] md:top-[40px] lg:top-[50px] xl:top-[60px] rotate-[-6deg] md:rotate-[-8deg] z-10 w-[160px] sm:w-[180px] md:w-[155px] lg:w-[195px] xl:w-[235px] aspect-[1/1.4] bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800/80 shadow-lg dark:shadow-black/50 p-1 rounded-sm transition-shadow duration-300 cursor-zoom-in"
                   >
                     <img
-                      src="/coursebook-1.jpg"
+                      src="/coursebook-1.webp"
                       alt="SOVAKA Dental Radiology Coursebook Cover"
                       className="w-full h-full object-cover select-none pointer-events-none rounded-xs"
+                      width={403}
+                      height={531}
                     />
                   </motion.div>
 
@@ -532,9 +536,11 @@ export default function TrainingCareersPage() {
                     className="absolute left-[18%] top-[40px] md:left-[17%] md:top-[10px] lg:top-[15px] xl:top-[20px] rotate-[4deg] md:rotate-[3deg] z-25 w-[160px] sm:w-[180px] md:w-[155px] lg:w-[195px] xl:w-[235px] aspect-[1/1.4] bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800/80 shadow-lg dark:shadow-black/50 p-1 rounded-sm transition-shadow duration-300 cursor-zoom-in"
                   >
                     <img
-                      src="/coursebook-2.jpg"
+                      src="/coursebook-2.webp"
                       alt="FDI Tooth Numbering System"
                       className="w-full h-full object-cover select-none pointer-events-none rounded-xs"
+                      width={405}
+                      height={438}
                     />
                   </motion.div>
 
@@ -544,9 +550,11 @@ export default function TrainingCareersPage() {
                     className="absolute left-[10%] top-[100px] md:left-[34%] md:top-[25px] lg:top-[30px] xl:top-[40px] rotate-[-3deg] md:rotate-[-4deg] z-20 w-[160px] sm:w-[180px] md:w-[155px] lg:w-[195px] xl:w-[235px] aspect-[1/1.4] bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800/80 shadow-lg dark:shadow-black/50 p-1 rounded-sm transition-shadow duration-300 cursor-zoom-in"
                   >
                     <img
-                      src="/coursebook-3.jpg"
-                      alt="OPG Quality Rules"
+                      src="/coursebook-3.webp"
+                      alt="OPG Golden Rule"
                       className="w-full h-full object-cover select-none pointer-events-none rounded-xs"
+                      width={400}
+                      height={482}
                     />
                   </motion.div>
 
@@ -556,9 +564,11 @@ export default function TrainingCareersPage() {
                     className="absolute left-[24%] top-[150px] md:left-[51%] md:top-[5px] lg:top-[5px] xl:top-[10px] rotate-[5deg] md:rotate-[5deg] z-35 w-[160px] sm:w-[180px] md:w-[155px] lg:w-[195px] xl:w-[235px] aspect-[1/1.4] bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800/80 shadow-lg dark:shadow-black/50 p-1 rounded-sm transition-shadow duration-300 cursor-zoom-in"
                   >
                     <img
-                      src="/coursebook-4.jpg"
+                      src="/coursebook-4.webp"
                       alt="Frankfort Plane and Chin Alignment"
                       className="w-full h-full object-cover select-none pointer-events-none rounded-xs"
+                      width={403}
+                      height={483}
                     />
                   </motion.div>
 
@@ -568,9 +578,11 @@ export default function TrainingCareersPage() {
                     className="absolute left-[14%] top-[200px] md:left-[68%] md:top-[35px] lg:top-[40px] xl:top-[50px] rotate-[-4deg] md:rotate-[-3deg] z-30 w-[160px] sm:w-[180px] md:w-[155px] lg:w-[195px] xl:w-[235px] aspect-[1/1.4] bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800/80 shadow-lg dark:shadow-black/50 p-1 rounded-sm transition-shadow duration-300 cursor-zoom-in"
                   >
                     <img
-                      src="/coursebook-5.jpg"
+                      src="/coursebook-5.webp"
                       alt="Jaw Joint (TMJ) Positions"
                       className="w-full h-full object-cover select-none pointer-events-none rounded-xs"
+                      width={403}
+                      height={495}
                     />
                   </motion.div>
 

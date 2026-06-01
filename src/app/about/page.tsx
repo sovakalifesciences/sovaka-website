@@ -217,9 +217,11 @@ export default function AboutPage() {
                     <div className="absolute inset-0 border border-dashed border-[#1A1A1A]/5 dark:border-white/5 m-3 rounded-sm pointer-events-none z-10" />
                     
                     <img 
-                      src="/akshay-shah.jpg" 
+                      src="/akshay-shah.webp" 
                       alt="Dr. Akshay Shah"
                       className="w-full h-full object-cover object-center grayscale contrast-[1.01] brightness-[0.98]"
+                      width={681}
+                      height={1024}
                     />
                   </div>
                   
