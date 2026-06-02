@@ -102,7 +102,7 @@ export default function AboutPage() {
       <main className="min-h-screen bg-white dark:bg-[#0a0a0a] pt-[120px] pb-24 text-[#1A1A1A] dark:text-zinc-200">
         <div className="max-w-[1440px] mx-auto w-full px-6 md:px-12 lg:px-24 xl:px-32">
           
-          {/* About Hero Section */}
+          {/* Section 1: About Hero Section */}
           <section className="mb-16 lg:mb-20">
             <div className="max-w-[960px]">
               <span className="inline-block uppercase tracking-[0.15em] text-xs font-semibold text-[#1A1A1A] dark:text-zinc-300 bg-sand-100 dark:bg-zinc-900 border border-sand-200 dark:border-zinc-800 px-3 py-1.5 rounded-sm mb-8">
@@ -117,7 +117,7 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* The Meaning Behind SOVAKA */}
+          {/* Section 2: The Meaning Behind SOVAKA */}
           <section className="mb-20 border-t border-zinc-100 dark:border-zinc-900 pt-16">
             <div className="max-w-[760px] mx-auto text-center">
               <span className="block text-xs uppercase tracking-[0.2em] font-semibold text-[#666666] mb-3">
@@ -175,76 +175,13 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* The Ecosystem Pillars */}
-          <section className="mb-20 border-t border-zinc-100 dark:border-zinc-900 pt-16">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-              <div className="lg:col-span-4">
-                <span className="block text-xs uppercase tracking-widest font-semibold text-[#666666] mb-4">Ecosystem</span>
-                <h2 className="text-3xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 leading-tight">
-                  A multi-layered infrastructure model.
-                </h2>
-              </div>
-              <div className="lg:col-span-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {pillars.map((pillar, index) => (
-                    <div key={index} className="space-y-4">
-                      <div className="w-10 h-10 rounded-sm bg-sand-50 dark:bg-zinc-900 border border-sand-100 dark:border-zinc-800 flex items-center justify-center">
-                        {pillar.icon}
-                      </div>
-                      <h3 className="text-lg font-medium text-[#1A1A1A] dark:text-zinc-50">
-                        {pillar.title}
-                      </h3>
-                      <p className="text-sm text-[#4F4F4F] dark:text-zinc-400 leading-relaxed">
-                        {pillar.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Operational Foundation */}
-          <section className="mb-20 border-t border-zinc-100 dark:border-zinc-900 pt-16 bg-sand-50 dark:bg-zinc-900/10 p-8 md:p-12 rounded-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-6 space-y-6">
-                <span className="inline-block uppercase tracking-[0.1em] text-xs font-semibold text-[#4F4F4F]">
-                  Operational Foundation
-                </span>
-                <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 leading-tight">
-                  Real-world credibility, clinical heritage.
-                </h2>
-                <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed text-sm md:text-base">
-                  Unlike platforms built purely on software speculation, SOVAKA Lifesciences is anchored in the <strong>40+ year Nidaan legacy</strong> established in Pune in 1985. Our operations encompass physical diagnostic imaging centres, centralized teleradiology remote reporting workflows, experienced Oral and Maxillofacial Radiologists (OMRs), and structured, audited reporting protocols.
-                </p>
-              </div>
-              <div className="lg:col-span-6 grid grid-cols-2 gap-6">
-                {[
-                  { value: "1985", label: "Legacy Foundation" },
-                  { value: "40+ Years", label: "Radiology Experience" },
-                  { value: "Pune, IN", label: "Operations Hub" },
-                  { value: "AI-Ready", label: "Centralized Workflows" },
-                ].map((stat, index) => (
-                  <div key={index} className="border-l border-zinc-200 dark:border-zinc-800 pl-6 py-2">
-                    <span className="block text-3xl font-semibold text-[#1A1A1A] dark:text-zinc-50 tracking-tight">
-                      {stat.value}
-                    </span>
-                    <span className="block text-xs uppercase tracking-wider text-[#666666] mt-1">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Leadership & Expertise */}
+          {/* Section 3: Leadership */}
           <section className="mb-20 border-t border-zinc-100 dark:border-zinc-900 pt-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
               {/* Left Side: Eyebrow + Section Title + Subtitle */}
               <div className="lg:col-span-4 space-y-4">
                 <span className="block text-xs uppercase tracking-widest font-semibold text-[#666666]">
-                  Leadership
+                  Leadership & Vision
                 </span>
                 <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 leading-tight">
                   Dr. Akshay Shah
@@ -293,22 +230,70 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* Future Vision */}
+          {/* Section 4: Ecosystem Model */}
           <section className="mb-20 border-t border-zinc-100 dark:border-zinc-900 pt-16">
-            <div className="max-w-[800px] space-y-6">
-              <span className="inline-block uppercase tracking-[0.1em] text-xs font-semibold text-[#4F4F4F]">
-                Future Vision
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 leading-[1.2]">
-                The future of dentistry is connected, intelligent, and highly standardized.
-              </h2>
-              <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed text-sm md:text-base">
-                We believe that the next decade of diagnostic dental imaging will not be defined by isolated software tools, but by fully connected imaging networks. By pairing physical site footprints in Maharashtra with remote OMR specialist networks and AI-assisted cloud diagnostics, we are building the resilient diagnostic infrastructure that future dental ecosystems demand.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+              <div className="lg:col-span-4">
+                <span className="block text-xs uppercase tracking-widest font-semibold text-[#666666] mb-4">Ecosystem Model</span>
+                <h2 className="text-3xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 leading-tight">
+                  A multi-layered infrastructure model.
+                </h2>
+              </div>
+              <div className="lg:col-span-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {pillars.map((pillar, index) => (
+                    <div key={index} className="space-y-4">
+                      <div className="w-10 h-10 rounded-sm bg-sand-50 dark:bg-zinc-900 border border-sand-100 dark:border-zinc-800 flex items-center justify-center">
+                        {pillar.icon}
+                      </div>
+                      <h3 className="text-lg font-medium text-[#1A1A1A] dark:text-zinc-50">
+                        {pillar.title}
+                      </h3>
+                      <p className="text-sm text-[#4F4F4F] dark:text-zinc-400 leading-relaxed">
+                        {pillar.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </section>
 
-          {/* Ecosystem Timeline */}
+          {/* Section 5: Corporate Identity + Credibility */}
+          <section className="mb-20 border-t border-zinc-100 dark:border-zinc-900 pt-16 bg-sand-50 dark:bg-zinc-900/10 p-8 md:p-12 rounded-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div className="lg:col-span-6 space-y-6">
+                <span className="inline-block uppercase tracking-[0.1em] text-xs font-semibold text-[#4F4F4F]">
+                  Identity & Credibility
+                </span>
+                <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 leading-tight">
+                  Real-world credibility, clinical heritage.
+                </h2>
+                <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed text-sm md:text-base">
+                  Unlike platforms built purely on software speculation, SOVAKA Lifesciences is anchored in the <strong>40+ year Nidaan legacy</strong> established in Pune in 1985. Our operations encompass physical diagnostic imaging centres, centralized teleradiology remote reporting workflows, experienced Oral and Maxillofacial Radiologists (OMRs), and structured, audited reporting protocols.
+                </p>
+              </div>
+              <div className="lg:col-span-6 grid grid-cols-2 gap-6">
+                {[
+                  { value: "1985", label: "Legacy Foundation" },
+                  { value: "40+ Years", label: "Radiology Experience" },
+                  { value: "Pune, IN", label: "Operations Hub" },
+                  { value: "AI-Ready", label: "Centralized Workflows" },
+                ].map((stat, index) => (
+                  <div key={index} className="border-l border-zinc-200 dark:border-zinc-800 pl-6 py-2">
+                    <span className="block text-3xl font-semibold text-[#1A1A1A] dark:text-zinc-50 tracking-tight">
+                      {stat.value}
+                    </span>
+                    <span className="block text-xs uppercase tracking-wider text-[#666666] mt-1">
+                      {stat.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Section 6: Journey / Timeline */}
           <section className="mb-20 border-t border-zinc-100 dark:border-zinc-900 pt-16">
             <span className="block text-xs uppercase tracking-widest font-semibold text-[#666666] mb-12">Ecosystem Evolution</span>
             <div className="relative border-l border-zinc-200 dark:border-zinc-800 ml-4 pl-8 space-y-12">
