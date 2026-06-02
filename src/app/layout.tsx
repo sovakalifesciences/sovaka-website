@@ -172,6 +172,18 @@ export default function RootLayout({
                     phone: href.replace('tel:', ''),
                     method: 'tel_click'
                   });
+                } else if (href.indexOf('linkedin.com/in/dr-akshay-shah-cbct') > -1) {
+                  window.dataLayer.push({
+                    event: 'social_click',
+                    platform: 'linkedin',
+                    destination: 'https://www.linkedin.com/in/dr-akshay-shah-cbct/'
+                  });
+                } else if (href.indexOf('instagram.com/sovaka.lifesciences') > -1) {
+                  window.dataLayer.push({
+                    event: 'social_click',
+                    platform: 'instagram',
+                    destination: 'https://www.instagram.com/sovaka.lifesciences/'
+                  });
                 } else if (href.indexOf('http') === 0 && href.indexOf('sovakalifesciences.com') === -1 && href.indexOf('localhost') === -1) {
                   window.dataLayer.push({
                     event: 'outbound_link_click',

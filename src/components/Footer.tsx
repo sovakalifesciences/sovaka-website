@@ -139,7 +139,7 @@ export default function Footer() {
               <div className="pt-4 flex flex-col gap-4">
                 <div className="flex gap-3">
                   <a 
-                    href="https://linkedin.com" 
+                    href="https://www.linkedin.com/in/dr-akshay-shah-cbct/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="w-12 h-12 rounded-sm bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-[#666666] hover:text-[#1A1A1A] dark:hover:text-zinc-100 hover:bg-sand-100 hover:border-sand-200 transition-all duration-300" 
@@ -148,7 +148,7 @@ export default function Footer() {
                     <LinkedinIcon className="w-[26px] h-[26px]" />
                   </a>
                   <a 
-                    href="https://instagram.com" 
+                    href="https://www.instagram.com/sovaka.lifesciences/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="w-12 h-12 rounded-sm bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-[#666666] hover:text-[#1A1A1A] dark:hover:text-zinc-100 hover:bg-sand-100 hover:border-sand-200 transition-all duration-300" 
