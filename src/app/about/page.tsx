@@ -117,6 +117,64 @@ export default function AboutPage() {
             </div>
           </section>
 
+          {/* The Meaning Behind SOVAKA */}
+          <section className="mb-20 border-t border-zinc-100 dark:border-zinc-900 pt-16">
+            <div className="max-w-[760px] mx-auto text-center">
+              <span className="block text-xs uppercase tracking-[0.2em] font-semibold text-[#666666] mb-3">
+                OUR NAME
+              </span>
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em] leading-tight text-[#1A1A1A] dark:text-zinc-50 mb-1">
+                The Meaning Behind SOVAKA
+              </h2>
+              <span className="block text-sm font-medium text-[#666666] dark:text-zinc-400 font-serif italic mb-10">
+                ソワカ (Sowaka)
+              </span>
+              
+              <div className="space-y-6 text-sm md:text-base text-[#4F4F4F] dark:text-zinc-400 leading-relaxed text-center">
+                <p>
+                  The name SOVAKA is inspired by Sowaka (ソワカ), a term found in Buddhist traditions and derived from the ancient Sanskrit expression Svāhā.
+                </p>
+                <p>
+                  Traditionally spoken at the conclusion of sacred mantras and prayers, the term conveys affirmation, dedication, and the successful completion of an offering. Across centuries, it has come to symbolize the transformation of intention into meaningful action.
+                </p>
+                <p>
+                  For SOVAKA LifeSciences, this meaning reflects the philosophy that guides everything we build.
+                </p>
+              </div>
+
+              {/* Special Quote Block (Three columns, centered and elegant) */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 py-10 my-12 border-y border-sand-200 dark:border-zinc-800/80">
+                <div className="flex flex-col items-center justify-center p-4">
+                  <span className="block text-[10px] font-mono tracking-widest text-[#666666] mb-3 uppercase">01 / IMPACT</span>
+                  <p className="text-base md:text-lg font-medium tracking-tight text-[#1A1A1A] dark:text-zinc-100 max-w-[200px]">
+                    Knowledge should become impact.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center justify-center p-4 md:border-l border-sand-200 dark:border-zinc-800/80">
+                  <span className="block text-[10px] font-mono tracking-widest text-[#666666] mb-3 uppercase">02 / INFRASTRUCTURE</span>
+                  <p className="text-base md:text-lg font-medium tracking-tight text-[#1A1A1A] dark:text-zinc-100 max-w-[200px]">
+                    Innovation should become infrastructure.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center justify-center p-4 md:border-l border-sand-200 dark:border-zinc-800/80">
+                  <span className="block text-[10px] font-mono tracking-widest text-[#666666] mb-3 uppercase">03 / REALITY</span>
+                  <p className="text-base md:text-lg font-medium tracking-tight text-[#1A1A1A] dark:text-zinc-100 max-w-[200px]">
+                    Vision should become reality.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-6 text-sm md:text-base text-[#4F4F4F] dark:text-zinc-400 leading-relaxed text-center mb-6">
+                <p>
+                  As healthcare evolves through connected systems, artificial intelligence, and advanced diagnostics, our mission is to transform ideas into enduring institutions that create measurable value for clinicians, patients, and the wider healthcare ecosystem.
+                </p>
+                <p>
+                  SOVAKA represents commitment, execution, and the belief that meaningful progress is achieved when purpose is translated into action.
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* The Ecosystem Pillars */}
           <section className="mb-20 border-t border-zinc-100 dark:border-zinc-900 pt-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
