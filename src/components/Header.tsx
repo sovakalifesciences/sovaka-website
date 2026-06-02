@@ -62,7 +62,7 @@ export default function Header() {
                 <Link
                   key={idx}
                   href={item.href}
-                  className="relative text-[11px] xl:text-[13.5px] 2xl:text-[14.5px] font-semibold uppercase tracking-[0.08em] text-[#4F4F4F] hover:text-[#1A1A1A] dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors duration-300 whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1.5px] after:bg-current after:origin-center after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:ease-out"
+                  className="relative text-[12px] xl:text-[14.5px] 2xl:text-[15.5px] font-navigation uppercase text-[#4F4F4F] hover:text-[#1A1A1A] dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors duration-300 whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1.5px] after:bg-current after:origin-center after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:ease-out"
                 >
                   {item.label}
                 </Link>
@@ -144,7 +144,7 @@ export default function Header() {
                         key={idx}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="text-sm font-semibold uppercase tracking-[0.1em] text-[#1A1A1A] dark:text-zinc-200 hover:text-[#1A1A1A] dark:hover:text-white transition-colors duration-300 py-1"
+                        className="text-[15px] font-navigation uppercase text-[#1A1A1A] dark:text-zinc-200 hover:text-[#1A1A1A] dark:hover:text-white transition-colors duration-300 py-1"
                       >
                         {item.label}
                       </Link>

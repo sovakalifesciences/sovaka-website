@@ -22,6 +22,7 @@ html {
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-manrope: var(--font-manrope);
   --color-sand-50: #F0EBE1;
   --color-sand-100: #E6DFD3;
   --color-sand-200: #D8CFC0;
@@ -31,4 +32,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-navigation {
+  font-family: var(--font-manrope), 'Manrope', Inter, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
