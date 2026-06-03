@@ -15,13 +15,7 @@ interface CertifiedProfessional {
   year: string;
 }
 
-const fallbackProfessionals: CertifiedProfessional[] = [
-  { srNo: "001", name: "Amit Sharma", month: "June", year: "2026" },
-  { srNo: "002", name: "Priya Patel", month: "June", year: "2026" },
-  { srNo: "003", name: "Rahul Deshmukh", month: "June", year: "2026" },
-  { srNo: "004", name: "Sneha Patil", month: "June", year: "2026" },
-  { srNo: "005", name: "Vikram Shah", month: "June", year: "2026" },
-];
+const fallbackProfessionals: CertifiedProfessional[] = [];
 
 // The spreadsheet must be shared as "Anyone with the link can view"
 const GOOGLE_SHEET_ID = "YOUR_GOOGLE_SHEET_ID_HERE";
@@ -50,6 +44,7 @@ export default function TrainingCareersPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [professionals, setProfessionals] = useState<CertifiedProfessional[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
 
   React.useEffect(() => {
     if (!GOOGLE_SHEET_ID || GOOGLE_SHEET_ID === "YOUR_GOOGLE_SHEET_ID_HERE") {
@@ -151,17 +146,19 @@ export default function TrainingCareersPage() {
       btnCall: "Speak With Our Training Team",
       rollingNotice: "Applications are reviewed on a rolling basis based on training capacity and operational schedules.",
       secondaryCareerMsg: "Job opportunities may be available for selected candidates upon successful completion.",
-      registryTitle: "SOVAKA & NIDAAN Certified Professionals",
+      registryTitle: "SOVAKA & NIDAAN Certified Professionals Registry",
+      registryCertLabel: "Certificate Name",
       registryCertName: "Certificate Course in Extraoral Dental Radiography",
-      registryIntro: "The following professionals have successfully completed the Certificate Course in Extraoral Dental Radiography conducted under the academic and clinical framework of SOVAKA LifeSciences and Nidaan CBCT & OPG Centre. This registry enables employers, institutions, and healthcare organizations to verify certified candidates.",
+      registryIntro: "This registry allows employers, institutions and professionals to verify individuals who have successfully completed the Certificate Course in Extraoral Dental Radiography conducted under the SOVAKA & NIDAAN ecosystem.",
       registryTotal: "Total Certified Professionals",
-      registrySearch: "Search by Name",
+      registrySearch: "Search Certified Professional",
       registrySrNo: "Sr. No.",
       registryName: "Name",
       registryMonth: "Month",
       registryYear: "Year",
       registryLoading: "Loading registry...",
-      registryNoResults: 'No certified professionals found matching "{query}"'
+      registryNoResults: 'No certified professionals found matching "{query}"',
+      registryEmptyState: "No certified professionals have been published yet. The registry will be updated as candidates successfully complete the Certificate Course in Extraoral Dental Radiography."
     },
     mr: {
       pageLabel: "डेंटल रेडिओलॉजी टेक्निशियन ट्रेनिंग आणि नोकरीच्या संधी",
@@ -232,17 +229,19 @@ export default function TrainingCareersPage() {
       btnCall: "आमच्या ट्रेनिंग टीमशी बोला",
       rollingNotice: "प्रवेश क्षमता आणि ऑपरेशन्सच्या वेळापत्रकावर आधारित अर्जांचे पुनरावलोकन वेळोवेळी (रोलिंग बेसिस) केले जाते.",
       secondaryCareerMsg: "प्रशिक्षण यशस्वीरीत्या पूर्ण केल्यावर निवडक उमेदवारांसाठी नोकरीच्या संधी उपलब्ध असू शकतात.",
-      registryTitle: "सोव्हाका आणि निदान प्रमाणित व्यावसायिक",
+      registryTitle: "सोव्हाका आणि निदान प्रमाणित व्यावसायिक नोंदणी",
+      registryCertLabel: "प्रमाणपत्राचे नाव",
       registryCertName: "एक्स्ट्राओरल डेंटल रेडिओलॉजीमधील प्रमाणपत्र अभ्यासक्रम",
-      registryIntro: "खालील व्यावसायिकांनी सोव्हाका लाइफसायन्सेस (SOVAKA LifeSciences) आणि निदान (Nidaan) सीबीसीटी आणि ओपीजी केंद्राच्या शैक्षणिक आणि क्लिनिकल फ्रेमवर्क अंतर्गत एक्स्ट्राओरल डेंटल रेडिओलॉजीमधील प्रमाणपत्र अभ्यासक्रम यशस्वीरित्या पूर्ण केला आहे. ही नोंदणी नियोक्ते, संस्था आणि आरोग्य सेवा संस्थांना प्रमाणित उमेदवारांची पडताळणी करण्यास सक्षम करते.",
+      registryIntro: "ही नोंदणी नियोक्ते, संस्था आणि व्यावसायिकांना सोव्हाका आणि निदान परिसंस्थेअंतर्गत एक्स्ट्राओरल डेंटल रेडिओग्राफीमधील प्रमाणपत्र अभ्यासक्रम यशस्वीरित्या पूर्ण केलेल्या व्यक्तींची पडताळणी करण्यास मदत करते.",
       registryTotal: "एकूण प्रमाणित व्यावसायिक",
-      registrySearch: "नावानुसार शोधा",
+      registrySearch: "प्रमाणित व्यावसायिक शोधा",
       registrySrNo: "अनुक्रमांक",
       registryName: "नाव",
       registryMonth: "महिना",
       registryYear: "वर्ष",
       registryLoading: "नोंदणी लोड होत आहे...",
-      registryNoResults: '"{query}" या नावाने कोणीही प्रमाणित व्यावसायिक आढळले नाही'
+      registryNoResults: '"{query}" या नावाने कोणीही प्रमाणित व्यावसायिक आढळले नाही',
+      registryEmptyState: "अद्याप कोणतेही प्रमाणित व्यावसायिक प्रकाशित केलेले नाहीत. उमेदवारांनी एक्स्ट्राओरल डेंटल रेडिओग्राफीमधील प्रमाणपत्र अभ्यासक्रम यशस्वीरित्या पूर्ण केल्यानंतर नोंदणी अपडेट केली जाईल."
     },
     hi: {
       pageLabel: "डेंटल रेडियोलॉजी तकनीशियन प्रशिक्षण और नौकरी के अवसर",
@@ -313,17 +312,19 @@ export default function TrainingCareersPage() {
       btnCall: "हमारी ट्रेनिंग टीम से बात करें",
       rollingNotice: "प्रवेश क्षमता और परिचालन कार्यक्रम के आधार पर आवेदनों की समीक्षा रोलिंग आधार पर समय-समय पर की जाती है।",
       secondaryCareerMsg: "प्रशिक्षण सफलतापूर्वक पूरा करने पर चयनित उम्मीदवारों के लिए नौकरी के अवसर उपलब्ध हो सकते हैं।",
-      registryTitle: "सोवाका और निदान प्रमाणित पेशेवर",
+      registryTitle: "सोवाका और निदान प्रमाणित पेशेवर रजिस्ट्री",
+      registryCertLabel: "प्रमाणपत्र का नाम",
       registryCertName: "एक्स्ट्राओरल डेंटल रेडियोलॉजी में प्रमाणपत्र पाठ्यक्रम",
-      registryIntro: "निम्नलिखित पेशेवरों ने सोवाका लाइफसाइंसेज (SOVAKA LifeSciences) और निदान (Nidaan) सीबीसीटी और ओपीजी केंद्र के शैक्षणिक और नैदानिक ढांचे के तहत एक्स्ट्राओरल डेंटल रेडियोलॉजी में प्रमाणपत्र पाठ्यक्रम सफलतापूर्वक पूरा किया है। यह रजिस्ट्री नियोक्ताओं, संस्थानों और स्वास्थ्य सेवा संगठनों को प्रमाणित उम्मीदवारों को सत्यापित करने में सक्षम बनाती है।",
+      registryIntro: "यह रजिस्ट्री नियोक्ताओं, संस्थानों और पेशेवरों को उन व्यक्तियों को सत्यापित करने की अनुमति देती है जिन्होंने सोवाका और निदान पारिस्थितिकी तंत्र के तहत आयोजित एक्स्ट्राओरल डेंटल रेडियोग्राफी में प्रमाणपत्र पाठ्यक्रम सफलतापूर्वक पूरा कर लिया है।",
       registryTotal: "कुल प्रमाणित पेशेवर",
-      registrySearch: "नाम से खोजें",
+      registrySearch: "प्रमाणित पेशेवर खोजें",
       registrySrNo: "क्र. सं.",
       registryName: "नाम",
-      registryMonth: "महीना",
+      registryMonth: "महिना",
       registryYear: "वर्ष",
       registryLoading: "रजिस्ट्री लोड हो रही है...",
-      registryNoResults: '"{query}" नाम से कोई भी प्रमाणित पेशेवर नहीं मिला'
+      registryNoResults: '"{query}" नाम से कोई भी प्रमाणित पेशेवर नहीं मिला',
+      registryEmptyState: "अभी तक कोई भी प्रमाणित पेशेवर प्रकाशित नहीं किया गया है। उम्मीदवारों द्वारा एक्स्ट्राओरल डेंटल रेडियोग्राफी में प्रमाणपत्र पाठ्यक्रम सफलतापूर्वक पूरा करने के बाद रजिस्ट्री अपडेट की जाएगी।"
     }
   };
 
@@ -414,6 +415,12 @@ export default function TrainingCareersPage() {
   const filteredProfessionals = professionals.filter((p) =>
     p.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const ITEMS_PER_PAGE = 10;
+  const totalPages = Math.ceil(filteredProfessionals.length / ITEMS_PER_PAGE) || 1;
+  const activePage = Math.min(currentPage, totalPages);
+  const startIndex = (activePage - 1) * ITEMS_PER_PAGE;
+  const paginatedProfessionals = filteredProfessionals.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
   return (
     <>
@@ -894,12 +901,18 @@ export default function TrainingCareersPage() {
               <span className="block text-xs uppercase tracking-widest font-semibold text-[#666666] mb-4">
                 Verification Registry
               </span>
-              <h2 className="text-3xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 mb-2">
+              <h2 className="text-3xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 mb-4">
                 {activeContent.registryTitle}
               </h2>
-              <p className="text-base md:text-lg font-semibold text-[#666666] dark:text-zinc-400 mb-6 font-mono tracking-wide uppercase">
-                {activeContent.registryCertName}
-              </p>
+              
+              <div className="mb-6">
+                <span className="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-1">
+                  {activeContent.registryCertLabel}
+                </span>
+                <p className="text-base md:text-lg font-semibold text-[#666666] dark:text-zinc-400 font-mono tracking-wide uppercase">
+                  {activeContent.registryCertName}
+                </p>
+              </div>
               
               <p className="text-sm md:text-base text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-10 max-w-[760px]">
                 {activeContent.registryIntro}
@@ -917,75 +930,119 @@ export default function TrainingCareersPage() {
                 </div>
                 
                 {/* Search Box */}
-                <div className="relative max-w-sm w-full">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-zinc-400">
-                    <Search className="h-4 w-4" />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder={activeContent.registrySearch}
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="block w-full pl-10 pr-4 py-3 border border-zinc-200 dark:border-zinc-800 rounded-sm bg-white dark:bg-zinc-900 text-sm placeholder-zinc-400 text-[#1A1A1A] dark:text-zinc-100 focus:outline-hidden focus:border-zinc-400 dark:focus:border-zinc-700 transition-colors"
-                  />
-                </div>
-              </div>
-
-              {/* Table / Registry List */}
-              <div className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-850 rounded-sm overflow-hidden shadow-xs">
-                {loading ? (
-                  <div className="p-12 text-center text-sm text-[#666666] dark:text-zinc-400">
-                    {activeContent.registryLoading}
-                  </div>
-                ) : (
-                  <div className="overflow-x-auto">
-                    <table className="min-w-full divide-y divide-zinc-200 dark:divide-zinc-800 text-left">
-                      <thead className="bg-sand-50 dark:bg-zinc-900/60">
-                        <tr>
-                          <th scope="col" className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-zinc-400 w-[15%]">
-                            {activeContent.registrySrNo}
-                          </th>
-                          <th scope="col" className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-zinc-400 w-[55%]">
-                            {activeContent.registryName}
-                          </th>
-                          <th scope="col" className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-zinc-400 w-[15%]">
-                            {activeContent.registryMonth}
-                          </th>
-                          <th scope="col" className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-zinc-400 w-[15%]">
-                            {activeContent.registryYear}
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-zinc-100 dark:divide-zinc-900 text-[#1A1A1A] dark:text-zinc-200 text-sm">
-                        {filteredProfessionals.length > 0 ? (
-                          filteredProfessionals.map((prof, idx) => (
-                            <tr key={idx} className="hover:bg-sand-50/50 dark:hover:bg-zinc-900/20 transition-colors">
-                              <td className="px-6 py-4 font-mono text-zinc-500">
-                                {prof.srNo}
-                              </td>
-                              <td className="px-6 py-4 font-medium text-zinc-900 dark:text-zinc-100">
-                                {prof.name}
-                              </td>
-                              <td className="px-6 py-4">
-                                {prof.month}
-                              </td>
-                              <td className="px-6 py-4 font-mono text-zinc-500">
-                                {prof.year}
-                              </td>
-                            </tr>
-                          ))
-                        ) : (
-                          <tr>
-                            <td colSpan={4} className="px-6 py-12 text-center text-sm text-[#666666] dark:text-zinc-500 italic">
-                              {activeContent.registryNoResults.replace("{query}", searchQuery)}
-                            </td>
-                          </tr>
-                        )}
-                      </tbody>
-                    </table>
+                {!loading && professionals.length > 0 && (
+                  <div className="relative max-w-sm w-full">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-zinc-400">
+                      <Search className="h-4 w-4" />
+                    </div>
+                    <input
+                      type="text"
+                      placeholder={activeContent.registrySearch}
+                      value={searchQuery}
+                      onChange={(e) => {
+                        setSearchQuery(e.target.value);
+                        setCurrentPage(1);
+                      }}
+                      className="block w-full pl-10 pr-4 py-3 border border-zinc-200 dark:border-zinc-800 rounded-sm bg-white dark:bg-zinc-900 text-sm placeholder-zinc-400 text-[#1A1A1A] dark:text-zinc-100 focus:outline-hidden focus:border-zinc-400 dark:focus:border-zinc-700 transition-colors"
+                    />
                   </div>
                 )}
               </div>
+
+              {/* Table / Registry List / Empty State */}
+              {loading ? (
+                <div className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-850 rounded-sm overflow-hidden shadow-xs p-12 text-center text-sm text-[#666666] dark:text-zinc-400">
+                  {activeContent.registryLoading}
+                </div>
+              ) : professionals.length === 0 ? (
+                /* Empty state design: clean professional card */
+                <div className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-850 rounded-sm p-8 text-center shadow-xs max-w-2xl mx-auto">
+                  <div className="flex justify-center mb-4">
+                    <ShieldCheck className="h-12 w-12 text-zinc-300 dark:text-zinc-700" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-[#1A1A1A] dark:text-zinc-100 mb-2">
+                    {language === "en" ? "Registry Currently Empty" : language === "mr" ? "नोंदणी सध्या रिकामी आहे" : "रजिस्ट्री वर्तमान में खाली है"}
+                  </h3>
+                  <p className="text-sm text-[#4F4F4F] dark:text-zinc-400 leading-relaxed">
+                    {activeContent.registryEmptyState}
+                  </p>
+                </div>
+              ) : (
+                <>
+                  {/* Table / Registry List */}
+                  <div className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-850 rounded-sm overflow-hidden shadow-xs">
+                    <div className="overflow-x-auto">
+                      <table className="min-w-full divide-y divide-zinc-200 dark:divide-zinc-800 text-left">
+                        <thead className="bg-sand-50 dark:bg-zinc-900/60">
+                          <tr>
+                            <th scope="col" className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-zinc-400 w-[15%]">
+                              {activeContent.registrySrNo}
+                            </th>
+                            <th scope="col" className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-zinc-400 w-[55%]">
+                              {activeContent.registryName}
+                            </th>
+                            <th scope="col" className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-zinc-400 w-[15%]">
+                              {activeContent.registryMonth}
+                            </th>
+                            <th scope="col" className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-zinc-400 w-[15%]">
+                              {activeContent.registryYear}
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-zinc-100 dark:divide-zinc-900 text-[#1A1A1A] dark:text-zinc-200 text-sm">
+                          {paginatedProfessionals.length > 0 ? (
+                            paginatedProfessionals.map((prof, idx) => (
+                              <tr key={idx} className="hover:bg-sand-50/50 dark:hover:bg-zinc-900/20 transition-colors">
+                                <td className="px-6 py-4 font-mono text-zinc-500">
+                                  {prof.srNo}
+                                </td>
+                                <td className="px-6 py-4 font-medium text-zinc-900 dark:text-zinc-100">
+                                  {prof.name}
+                                </td>
+                                <td className="px-6 py-4">
+                                  {prof.month}
+                                </td>
+                                <td className="px-6 py-4 font-mono text-zinc-500">
+                                  {prof.year}
+                                </td>
+                              </tr>
+                            ))
+                          ) : (
+                            <tr>
+                              <td colSpan={4} className="px-6 py-12 text-center text-sm text-[#666666] dark:text-zinc-500 italic">
+                                {activeContent.registryNoResults.replace("{query}", searchQuery)}
+                              </td>
+                            </tr>
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Pagination Controls (Only show if total pages > 1 and we have results) */}
+                  {filteredProfessionals.length > 0 && totalPages > 1 && (
+                    <div className="flex items-center justify-between mt-6 bg-white dark:bg-zinc-950 px-6 py-4 border border-zinc-200 dark:border-zinc-850 rounded-sm shadow-xs">
+                      <button
+                        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                        className="px-4 py-2 border border-zinc-200 dark:border-zinc-800 rounded-sm text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] dark:text-zinc-200 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors"
+                      >
+                        {language === "en" ? "Previous" : language === "mr" ? "मागे" : "पीछे"}
+                      </button>
+                      <span className="text-xs font-mono text-[#666666] dark:text-zinc-400 uppercase tracking-widest text-center">
+                        {language === "en" ? "Previous" : language === "mr" ? "मागे" : "पीछे"} | {language === "en" ? "Page" : language === "mr" ? "पृष्ठ" : "पृष्ठ"} {currentPage} {language === "en" ? "of" : language === "mr" ? "चे" : "का"} {totalPages} | {language === "en" ? "Next" : language === "mr" ? "पुढे" : "आगे"}
+                      </span>
+                      <button
+                        onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                        className="px-4 py-2 border border-zinc-200 dark:border-zinc-800 rounded-sm text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] dark:text-zinc-200 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors"
+                      >
+                        {language === "en" ? "Next" : language === "mr" ? "पुढे" : "आगे"}
+                      </button>
+                    </div>
+                  )}
+                </>
+              )}
             </div>
           </section>
 
