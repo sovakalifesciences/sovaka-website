@@ -2,15 +2,84 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronDown, CheckCircle2, ShieldCheck, MapPin, BookOpen, Layers } from "lucide-react";
+import { ArrowRight, ChevronDown, CheckCircle2, ShieldCheck, MapPin, BookOpen, Layers, Search } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 type Language = "en" | "mr" | "hi";
 
+interface CertifiedProfessional {
+  srNo: string;
+  name: string;
+  month: string;
+  year: string;
+}
+
+const fallbackProfessionals: CertifiedProfessional[] = [
+  { srNo: "001", name: "Amit Sharma", month: "June", year: "2026" },
+  { srNo: "002", name: "Priya Patel", month: "June", year: "2026" },
+  { srNo: "003", name: "Rahul Deshmukh", month: "June", year: "2026" },
+  { srNo: "004", name: "Sneha Patil", month: "June", year: "2026" },
+  { srNo: "005", name: "Vikram Shah", month: "June", year: "2026" },
+];
+
+// The spreadsheet must be shared as "Anyone with the link can view"
+const GOOGLE_SHEET_ID = "YOUR_GOOGLE_SHEET_ID_HERE";
+
+const parseGVizJson = (text: string): CertifiedProfessional[] => {
+  const match = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/);
+  if (!match) throw new Error("Invalid response format");
+  const obj = JSON.parse(match[1]);
+  const table = obj.table;
+  const rows = table.rows;
+  
+  return rows.map((row: any) => {
+    const cells = row.c;
+    return {
+      srNo: cells[0] ? String(cells[0].f || cells[0].v || "") : "",
+      name: cells[1] ? String(cells[1].f || cells[1].v || "") : "",
+      month: cells[2] ? String(cells[2].f || cells[2].v || "") : "",
+      year: cells[3] ? String(cells[3].f || cells[3].v || "") : "",
+    };
+  });
+};
+
 export default function TrainingCareersPage() {
   const [language, setLanguage] = useState<Language>("en");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [professionals, setProfessionals] = useState<CertifiedProfessional[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  React.useEffect(() => {
+    if (!GOOGLE_SHEET_ID || GOOGLE_SHEET_ID === "YOUR_GOOGLE_SHEET_ID_HERE") {
+      setProfessionals(fallbackProfessionals);
+      setLoading(false);
+      return;
+    }
+
+    const fetchSheet = async () => {
+      try {
+        const url = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=out:json`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("Failed to fetch Google Sheet");
+        const text = await res.text();
+        const parsed = parseGVizJson(text);
+        if (parsed && parsed.length > 0) {
+          setProfessionals(parsed);
+        } else {
+          setProfessionals(fallbackProfessionals);
+        }
+      } catch (err) {
+        console.error("Error loading certified professionals registry:", err);
+        setProfessionals(fallbackProfessionals);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSheet();
+  }, []);
 
   const content = {
     en: {
@@ -81,7 +150,18 @@ export default function TrainingCareersPage() {
       btnApply: "Apply for Training",
       btnCall: "Speak With Our Training Team",
       rollingNotice: "Applications are reviewed on a rolling basis based on training capacity and operational schedules.",
-      secondaryCareerMsg: "Job opportunities may be available for selected candidates upon successful completion."
+      secondaryCareerMsg: "Job opportunities may be available for selected candidates upon successful completion.",
+      registryTitle: "SOVAKA & NIDAAN Certified Professionals",
+      registryCertName: "Certificate Course in Extraoral Dental Radiography",
+      registryIntro: "The following professionals have successfully completed the Certificate Course in Extraoral Dental Radiography conducted under the academic and clinical framework of SOVAKA LifeSciences and Nidaan CBCT & OPG Centre. This registry enables employers, institutions, and healthcare organizations to verify certified candidates.",
+      registryTotal: "Total Certified Professionals",
+      registrySearch: "Search by Name",
+      registrySrNo: "Sr. No.",
+      registryName: "Name",
+      registryMonth: "Month",
+      registryYear: "Year",
+      registryLoading: "Loading registry...",
+      registryNoResults: 'No certified professionals found matching "{query}"'
     },
     mr: {
       pageLabel: "डेंटल रेडिओलॉजी टेक्निशियन ट्रेनिंग आणि नोकरीच्या संधी",
@@ -151,7 +231,18 @@ export default function TrainingCareersPage() {
       btnApply: "प्रशिक्षणासाठी अर्ज करा",
       btnCall: "आमच्या ट्रेनिंग टीमशी बोला",
       rollingNotice: "प्रवेश क्षमता आणि ऑपरेशन्सच्या वेळापत्रकावर आधारित अर्जांचे पुनरावलोकन वेळोवेळी (रोलिंग बेसिस) केले जाते.",
-      secondaryCareerMsg: "प्रशिक्षण यशस्वीरीत्या पूर्ण केल्यावर निवडक उमेदवारांसाठी नोकरीच्या संधी उपलब्ध असू शकतात."
+      secondaryCareerMsg: "प्रशिक्षण यशस्वीरीत्या पूर्ण केल्यावर निवडक उमेदवारांसाठी नोकरीच्या संधी उपलब्ध असू शकतात.",
+      registryTitle: "सोव्हाका आणि निदान प्रमाणित व्यावसायिक",
+      registryCertName: "एक्स्ट्राओरल डेंटल रेडिओलॉजीमधील प्रमाणपत्र अभ्यासक्रम",
+      registryIntro: "खालील व्यावसायिकांनी सोव्हाका लाइफसायन्सेस (SOVAKA LifeSciences) आणि निदान (Nidaan) सीबीसीटी आणि ओपीजी केंद्राच्या शैक्षणिक आणि क्लिनिकल फ्रेमवर्क अंतर्गत एक्स्ट्राओरल डेंटल रेडिओलॉजीमधील प्रमाणपत्र अभ्यासक्रम यशस्वीरित्या पूर्ण केला आहे. ही नोंदणी नियोक्ते, संस्था आणि आरोग्य सेवा संस्थांना प्रमाणित उमेदवारांची पडताळणी करण्यास सक्षम करते.",
+      registryTotal: "एकूण प्रमाणित व्यावसायिक",
+      registrySearch: "नावानुसार शोधा",
+      registrySrNo: "अनुक्रमांक",
+      registryName: "नाव",
+      registryMonth: "महिना",
+      registryYear: "वर्ष",
+      registryLoading: "नोंदणी लोड होत आहे...",
+      registryNoResults: '"{query}" या नावाने कोणीही प्रमाणित व्यावसायिक आढळले नाही'
     },
     hi: {
       pageLabel: "डेंटल रेडियोलॉजी तकनीशियन प्रशिक्षण और नौकरी के अवसर",
@@ -221,7 +312,18 @@ export default function TrainingCareersPage() {
       btnApply: "प्रशिक्षण के लिए आवेदन करें",
       btnCall: "हमारी ट्रेनिंग टीम से बात करें",
       rollingNotice: "प्रवेश क्षमता और परिचालन कार्यक्रम के आधार पर आवेदनों की समीक्षा रोलिंग आधार पर समय-समय पर की जाती है।",
-      secondaryCareerMsg: "प्रशिक्षण सफलतापूर्वक पूरा करने पर चयनित उम्मीदवारों के लिए नौकरी के अवसर उपलब्ध हो सकते हैं।"
+      secondaryCareerMsg: "प्रशिक्षण सफलतापूर्वक पूरा करने पर चयनित उम्मीदवारों के लिए नौकरी के अवसर उपलब्ध हो सकते हैं।",
+      registryTitle: "सोवाका और निदान प्रमाणित पेशेवर",
+      registryCertName: "एक्स्ट्राओरल डेंटल रेडियोलॉजी में प्रमाणपत्र पाठ्यक्रम",
+      registryIntro: "निम्नलिखित पेशेवरों ने सोवाका लाइफसाइंसेज (SOVAKA LifeSciences) और निदान (Nidaan) सीबीसीटी और ओपीजी केंद्र के शैक्षणिक और नैदानिक ढांचे के तहत एक्स्ट्राओरल डेंटल रेडियोलॉजी में प्रमाणपत्र पाठ्यक्रम सफलतापूर्वक पूरा किया है। यह रजिस्ट्री नियोक्ताओं, संस्थानों और स्वास्थ्य सेवा संगठनों को प्रमाणित उम्मीदवारों को सत्यापित करने में सक्षम बनाती है।",
+      registryTotal: "कुल प्रमाणित पेशेवर",
+      registrySearch: "नाम से खोजें",
+      registrySrNo: "क्र. सं.",
+      registryName: "नाम",
+      registryMonth: "महीना",
+      registryYear: "वर्ष",
+      registryLoading: "रजिस्ट्री लोड हो रही है...",
+      registryNoResults: '"{query}" नाम से कोई भी प्रमाणित पेशेवर नहीं मिला'
     }
   };
 
@@ -308,6 +410,10 @@ export default function TrainingCareersPage() {
 
   const activeContent = content[language];
   const activeFaqs = faqs[language];
+
+  const filteredProfessionals = professionals.filter((p) =>
+    p.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <>
@@ -778,6 +884,107 @@ export default function TrainingCareersPage() {
                     {activeContent.trainingInfoText3}
                   </p>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section: SOVAKA & NIDAAN Certified Professionals */}
+          <section className="mb-20 border-t border-zinc-200 dark:border-zinc-800 pt-16">
+            <div className="max-w-[1200px]">
+              <span className="block text-xs uppercase tracking-widest font-semibold text-[#666666] mb-4">
+                Verification Registry
+              </span>
+              <h2 className="text-3xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 mb-2">
+                {activeContent.registryTitle}
+              </h2>
+              <p className="text-base md:text-lg font-semibold text-[#666666] dark:text-zinc-400 mb-6 font-mono tracking-wide uppercase">
+                {activeContent.registryCertName}
+              </p>
+              
+              <p className="text-sm md:text-base text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-10 max-w-[760px]">
+                {activeContent.registryIntro}
+              </p>
+              
+              {/* Registry Control Bar */}
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 bg-white dark:bg-zinc-950 p-6 border border-zinc-200 dark:border-zinc-850 rounded-sm shadow-xs">
+                <div>
+                  <span className="text-xs uppercase tracking-wider font-semibold text-[#666666] dark:text-zinc-400 block mb-1">
+                    {activeContent.registryTotal}
+                  </span>
+                  <span className="text-3xl font-semibold text-[#1A1A1A] dark:text-zinc-50 font-mono">
+                    {loading ? "..." : professionals.length}
+                  </span>
+                </div>
+                
+                {/* Search Box */}
+                <div className="relative max-w-sm w-full">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-zinc-400">
+                    <Search className="h-4 w-4" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder={activeContent.registrySearch}
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="block w-full pl-10 pr-4 py-3 border border-zinc-200 dark:border-zinc-800 rounded-sm bg-white dark:bg-zinc-900 text-sm placeholder-zinc-400 text-[#1A1A1A] dark:text-zinc-100 focus:outline-hidden focus:border-zinc-400 dark:focus:border-zinc-700 transition-colors"
+                  />
+                </div>
+              </div>
+
+              {/* Table / Registry List */}
+              <div className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-850 rounded-sm overflow-hidden shadow-xs">
+                {loading ? (
+                  <div className="p-12 text-center text-sm text-[#666666] dark:text-zinc-400">
+                    {activeContent.registryLoading}
+                  </div>
+                ) : (
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full divide-y divide-zinc-200 dark:divide-zinc-800 text-left">
+                      <thead className="bg-sand-50 dark:bg-zinc-900/60">
+                        <tr>
+                          <th scope="col" className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-zinc-400 w-[15%]">
+                            {activeContent.registrySrNo}
+                          </th>
+                          <th scope="col" className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-zinc-400 w-[55%]">
+                            {activeContent.registryName}
+                          </th>
+                          <th scope="col" className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-zinc-400 w-[15%]">
+                            {activeContent.registryMonth}
+                          </th>
+                          <th scope="col" className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-[#666666] dark:text-zinc-400 w-[15%]">
+                            {activeContent.registryYear}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-zinc-100 dark:divide-zinc-900 text-[#1A1A1A] dark:text-zinc-200 text-sm">
+                        {filteredProfessionals.length > 0 ? (
+                          filteredProfessionals.map((prof, idx) => (
+                            <tr key={idx} className="hover:bg-sand-50/50 dark:hover:bg-zinc-900/20 transition-colors">
+                              <td className="px-6 py-4 font-mono text-zinc-500">
+                                {prof.srNo}
+                              </td>
+                              <td className="px-6 py-4 font-medium text-zinc-900 dark:text-zinc-100">
+                                {prof.name}
+                              </td>
+                              <td className="px-6 py-4">
+                                {prof.month}
+                              </td>
+                              <td className="px-6 py-4 font-mono text-zinc-500">
+                                {prof.year}
+                              </td>
+                            </tr>
+                          ))
+                        ) : (
+                          <tr>
+                            <td colSpan={4} className="px-6 py-12 text-center text-sm text-[#666666] dark:text-zinc-500 italic">
+                              {activeContent.registryNoResults.replace("{query}", searchQuery)}
+                            </td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
               </div>
             </div>
           </section>
