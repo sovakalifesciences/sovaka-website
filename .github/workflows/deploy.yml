@@ -28,12 +28,43 @@ jobs:
 
 
 
+      - name: Diagnostic FTP Connection Test
+        continue-on-error: true
+        run: |
+          node -e "
+          const net = require('net');
+          const host = '${{ secrets.FTP_SERVER || secrets.FTP_HOST }}' || '91.108.101.182';
+          console.log('Attempting diagnostic TCP connection to ' + host + ':21...');
+          const socket = net.connect(21, host, () => {
+            console.log('SUCCESS: TCP socket established on port 21!');
+          });
+          socket.setTimeout(10000);
+          socket.on('data', (data) => {
+            console.log('SUCCESS: Received server banner:', data.toString().trim());
+            socket.destroy();
+            process.exit(0);
+          });
+          socket.on('timeout', () => {
+            console.error('ERROR: Connection timed out on port 21. Hostinger is likely blocking the GitHub runner IP range.');
+            socket.destroy();
+            process.exit(1);
+          });
+          socket.on('error', (err) => {
+            console.error('ERROR: Connection failed:', err.message);
+            process.exit(1);
+          });
+          "
+
       - name: Deploy via FTP to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: ${{ secrets.FTP_SERVER || secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT || 21 }}
+          protocol: ftp
+          timeout: 180000
           local-dir: ./out/
           server-dir: ./
           state-name: .ftp-deploy-sync-state-v2.json
+
