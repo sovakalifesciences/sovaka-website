@@ -52,11 +52,11 @@ export default function FranchiseSection() {
   ];
 
   const targetProfiles = [
-    "Dentists",
+    "Dentists & Radiologists",
+    "Healthcare & Diagnostic Operators",
+    "Family Offices & Business Owners",
     "Healthcare Entrepreneurs",
-    "Radiologists",
-    "Healthcare Investors",
-    "Tier-2 City Healthcare Operators",
+    "Strategic Investors",
   ];
 
   return (
