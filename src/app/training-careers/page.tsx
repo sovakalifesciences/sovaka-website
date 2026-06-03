@@ -18,7 +18,7 @@ interface CertifiedProfessional {
 const fallbackProfessionals: CertifiedProfessional[] = [];
 
 // The spreadsheet must be shared as "Anyone with the link can view"
-const GOOGLE_SHEET_ID = "YOUR_GOOGLE_SHEET_ID_HERE";
+const GOOGLE_SHEET_ID: string = "1QZfQ84--Xbjfvdq_Cz1Tzy60HWR5OQAvMUlXMMY1GA4";
 
 const parseGVizJson = (text: string): CertifiedProfessional[] => {
   const match = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/);
