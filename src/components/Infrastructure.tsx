@@ -107,7 +107,7 @@ export default function InfrastructureSection() {
               <img
                 src="/nidaan-logo.webp"
                 alt="Nidaan CBCT & OPG Centre"
-                className="h-7 w-auto object-contain filter grayscale opacity-45 dark:invert group-hover:opacity-75 transition-opacity duration-300"
+                className="h-9 w-auto object-contain opacity-85 group-hover:opacity-100 transition-opacity duration-300"
                 width={200}
                 height={50}
               />
