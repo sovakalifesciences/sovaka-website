@@ -17,21 +17,28 @@ export default function FranchisePage() {
           <section className="mb-16 lg:mb-20">
             <div className="max-w-[960px]">
               {/* Nidaan Logo & Legacy Block */}
-              <div className="mb-10 space-y-4">
+              <a
+                href="https://www.nidaandental.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mb-10 space-y-4 inline-flex flex-col items-start cursor-pointer group hover:opacity-85 transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 rounded-sm"
+                aria-label="Nidaan CBCT & OPG Centre website, established 1985, 40 plus years of dental imaging leadership"
+              >
                 <div className="bg-transparent dark:bg-white dark:px-6 dark:py-4 dark:rounded-sm dark:border dark:border-zinc-200 inline-flex items-center justify-start w-fit">
                   <img 
                     src="/nidaan-logo.webp" 
-                    alt="Nidaan CBCT & OPG Centre" 
+                    alt="Nidaan CBCT & OPG Centre Logo" 
                     className="h-16 md:h-20 w-auto object-contain"
                     width={1024}
                     height={427}
                   />
                 </div>
                 {/* Legacy Statement */}
-                <p className="text-xs md:text-sm font-semibold tracking-wide text-zinc-500 dark:text-zinc-400">
+                <p className="text-xs md:text-sm font-semibold tracking-wide text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5 leading-none">
                   Established 1985 • 40+ Years of Dental Imaging Leadership
+                  <span className="inline-block text-[10px] text-zinc-400 dark:text-zinc-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300">↗</span>
                 </p>
-              </div>
+              </a>
 
               {/* Ecosystem Badge */}
               <div className="mb-8">
