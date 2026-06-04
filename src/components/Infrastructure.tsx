@@ -97,6 +97,31 @@ export default function InfrastructureSection() {
             <p className="text-xl text-[#4F4F4F] dark:text-zinc-400 leading-relaxed max-w-[680px]">
               Built upon Nidaan's operational network, cloud reporting systems, radiology expertise and scalable imaging workflows.
             </p>
+            
+            <a
+              href="https://www.nidaandental.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-4 mt-12 hover:opacity-85 transition-opacity duration-300 group"
+            >
+              <img
+                src="/nidaan-logo.webp"
+                alt="Nidaan CBCT & OPG Centre"
+                className="h-7 w-auto object-contain filter grayscale opacity-45 dark:invert group-hover:opacity-75 transition-opacity duration-300"
+                width={200}
+                height={50}
+              />
+              <div className="h-6 w-px bg-zinc-200 dark:bg-zinc-800" />
+              <div className="flex flex-col text-left">
+                <span className="text-[11px] uppercase tracking-wider text-[#666666] dark:text-zinc-500 font-semibold leading-none">
+                  Built upon the Nidaan Network
+                </span>
+                <span className="text-xs font-semibold text-[#1A1A1A] dark:text-zinc-400 mt-1.5 flex items-center gap-1 leading-none">
+                  40+ Years of Dental Imaging Experience
+                  <span className="text-[9px] text-[#666666] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">↗</span>
+                </span>
+              </div>
+            </a>
           </div>
         </div>
 
