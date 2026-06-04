@@ -63,7 +63,7 @@ export default function ContactFooterSection() {
       desc: "For individuals seeking hands-on exposure and job opportunities in modern dental imaging systems.",
       subtext: "Training conducted inside operational CBCT & OPG imaging environments in Pune.",
       cta: "Explore the Program",
-      link: "/training-careers",
+      link: "/training-careers/",
     },
     {
       num: "03",
@@ -77,7 +77,7 @@ export default function ContactFooterSection() {
       title: "General Enquiries",
       desc: "For dentists, imaging professionals and ecosystem-related discussions.",
       cta: "Contact SOVAKA Lifesciences",
-      link: "/contact",
+      link: "/contact/",
     },
   ];
 

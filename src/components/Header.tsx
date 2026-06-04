@@ -24,11 +24,11 @@ export default function Header() {
   const navItems = [
     { label: "Ecosystem", href: "/#ecosystem" },
     { label: "Infrastructure", href: "/#infrastructure" },
-    { label: "Franchise", href: "/franchise" },
-    { label: "Training & Job Opportunities", href: "/training-careers" },
-    { label: "AI Ecosystem", href: "/technology" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact", isCTA: true },
+    { label: "Franchise", href: "/franchise/" },
+    { label: "Training & Job Opportunities", href: "/training-careers/" },
+    { label: "AI Ecosystem", href: "/technology/" },
+    { label: "About", href: "/about/" },
+    { label: "Contact", href: "/contact/", isCTA: true },
   ];
 
   return (

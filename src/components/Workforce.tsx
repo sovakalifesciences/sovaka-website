@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, BookOpen } from "lucide-react";
+import Link from "next/link";
 
 export default function WorkforceSection() {
   const fadeUpVariant = {
@@ -144,13 +145,13 @@ export default function WorkforceSection() {
 
         {/* CTA Block */}
         <div className="flex flex-col sm:flex-row gap-4 justify-start">
-          <a 
-            href="/training-careers" 
+          <Link 
+            href="/training-careers/" 
             className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-zinc-950 dark:bg-zinc-50 text-white dark:text-[#1A1A1A] font-medium rounded-sm transition-all duration-300 hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:scale-[0.98]"
           >
             <span>Explore Training & Job Opportunities</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
+          </Link>
           <a 
             href="https://forms.gle/vGUGby9hmxY3wDTW8" 
             target="_blank"

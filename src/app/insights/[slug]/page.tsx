@@ -140,7 +140,7 @@ const articlesData: Record<string, Article> = {
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          Within dental imaging specifically, centralized workflows may gradually become a defining characteristic of mature ecosystem infrastructure, such as the Nidaan CBCT workflows operating inside the SOVAKA <a href="/franchise" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Franchise ecosystem</a>.
+          Within dental imaging specifically, centralized workflows may gradually become a defining characteristic of mature ecosystem infrastructure, such as the Nidaan CBCT workflows operating inside the SOVAKA <a href="/franchise/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Franchise ecosystem</a>.
         </p>
 
         <h2 className="text-2xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 mt-12 mb-6">
@@ -160,7 +160,7 @@ const articlesData: Record<string, Article> = {
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          As imaging ecosystems become more operationally sophisticated, workforce development may evolve from a supporting activity into a strategic infrastructure requirement. Practical exposure to machine operations, scan acquisition, workflow systems, patient handling, software environments, and operational coordination will likely become increasingly valuable within the future dental imaging economy. Discover how we address this in the SOVAKA <a href="/training" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Workforce ecosystem</a>.
+          As imaging ecosystems become more operationally sophisticated, workforce development may evolve from a supporting activity into a strategic infrastructure requirement. Practical exposure to machine operations, scan acquisition, workflow systems, patient handling, software environments, and operational coordination will likely become increasingly valuable within the future dental imaging economy. Discover how we address this in the SOVAKA <a href="/training-careers/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Workforce ecosystem</a>.
         </p>
 
         <h2 className="text-2xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 mt-12 mb-6">
@@ -172,7 +172,7 @@ const articlesData: Record<string, Article> = {
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          Within dental imaging, AI may gradually support workflow prioritization, operational coordination, structured reporting assistance, infrastructure intelligence, imaging standardization, and ecosystem-level data integration. Learn more about these components in our dedicated <a href="/technology" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">AI Ecosystem</a> analysis.
+          Within dental imaging, AI may gradually support workflow prioritization, operational coordination, structured reporting assistance, infrastructure intelligence, imaging standardization, and ecosystem-level data integration. Learn more about these components in our dedicated <a href="/technology/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">AI Ecosystem</a> analysis.
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
@@ -196,7 +196,7 @@ const articlesData: Record<string, Article> = {
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          <a href="/about" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">SOVAKA Lifesciences</a> is focused on building connected infrastructure systems designed to support the future ecosystem of intelligent dental imaging.
+          <a href="/about/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">SOVAKA Lifesciences</a> is focused on building connected infrastructure systems designed to support the future ecosystem of intelligent dental imaging.
         </p>
       </>
     )
@@ -273,7 +273,7 @@ const articlesData: Record<string, Article> = {
         </ul>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          Without structured workforce readiness, inconsistencies may emerge across scan quality, operational efficiency, patient experience, reporting coordination, and overall workflow reliability. Learn how we address this bottleneck via our structured program for <a href="/training" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Workforce Development</a>.
+          Without structured workforce readiness, inconsistencies may emerge across scan quality, operational efficiency, patient experience, reporting coordination, and overall workflow reliability. Learn how we address this bottleneck via our structured program for <a href="/training-careers/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Workforce Development</a>.
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
@@ -301,7 +301,7 @@ const articlesData: Record<string, Article> = {
         </h2>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          As dental imaging ecosystems continue evolving, workforce development may increasingly function as a core infrastructure layer rather than a secondary educational activity, supplying talent directly to our Pune operational bases and regional <a href="/franchise" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Franchise ecosystem</a> networks.
+          As dental imaging ecosystems continue evolving, workforce development may increasingly function as a core infrastructure layer rather than a secondary educational activity, supplying talent directly to our Pune operational bases and regional <a href="/franchise/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Franchise ecosystem</a> networks.
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
@@ -313,7 +313,7 @@ const articlesData: Record<string, Article> = {
         </h2>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          The future workforce of dental imaging will require familiarity with real operational environments, imaging workflows, scan acquisition systems, patient communication, and connected software platforms, including our AI-assisted PACS systems mapped inside the <a href="/technology" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">AI Ecosystem</a>.
+          The future workforce of dental imaging will require familiarity with real operational environments, imaging workflows, scan acquisition systems, patient communication, and connected software platforms, including our AI-assisted PACS systems mapped inside the <a href="/technology/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">AI Ecosystem</a>.
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
@@ -337,7 +337,7 @@ const articlesData: Record<string, Article> = {
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          <a href="/about" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">SOVAKA Lifesciences</a> is focused on supporting workforce ecosystem development through practical operational exposure, workflow-oriented training systems and connected imaging infrastructure environments.
+          <a href="/about/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">SOVAKA Lifesciences</a> is focused on supporting workforce ecosystem development through practical operational exposure, workflow-oriented training systems and connected imaging infrastructure environments.
         </p>
       </>
     )
@@ -409,7 +409,7 @@ const articlesData: Record<string, Article> = {
         </ul>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          Even when imaging hardware is advanced, fragmented workflows can still reduce operational efficiency and ecosystem reliability. Discover how the SOVAKA <a href="/franchise" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Franchise ecosystem</a> manages this operational complexity.
+          Even when imaging hardware is advanced, fragmented workflows can still reduce operational efficiency and ecosystem reliability. Discover how the SOVAKA <a href="/franchise/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Franchise ecosystem</a> manages this operational complexity.
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
@@ -475,7 +475,7 @@ const articlesData: Record<string, Article> = {
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          The most sustainable ecosystem models will likely combine human expertise, operational maturity, and intelligent infrastructure—supported by an active <a href="/technology" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">AI Ecosystem</a>—rather than relying exclusively on automation alone. The pipeline is further sustained by training certified professionals in the SOVAKA <a href="/training-careers" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Training & Careers ecosystem</a>.
+          The most sustainable ecosystem models will likely combine human expertise, operational maturity, and intelligent infrastructure—supported by an active <a href="/technology/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">AI Ecosystem</a>—rather than relying exclusively on automation alone. The pipeline is further sustained by training certified professionals in the SOVAKA <a href="/training-careers/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Training & Careers ecosystem</a>.
         </p>
 
         <h2 className="text-2xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 mt-12 mb-6">
@@ -491,7 +491,7 @@ const articlesData: Record<string, Article> = {
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          <a href="/about" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">SOVAKA Lifesciences</a> is focused on building connected radiology workflow systems designed to support scalable and operationally mature dental imaging ecosystems.
+          <a href="/about/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">SOVAKA Lifesciences</a> is focused on building connected radiology workflow systems designed to support scalable and operationally mature dental imaging ecosystems.
         </p>
       </>
     )
@@ -561,7 +561,7 @@ const articlesData: Record<string, Article> = {
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          Without these systems, operational fragmentation may gradually increase as networks expand. Discover how the SOVAKA <a href="/franchise" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Franchise ecosystem</a> implements centralized operations to mitigate these risks.
+          Without these systems, operational fragmentation may gradually increase as networks expand. Discover how the SOVAKA <a href="/franchise/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Franchise ecosystem</a> implements centralized operations to mitigate these risks.
         </p>
 
         <h2 className="text-2xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 mt-12 mb-6">
@@ -585,7 +585,7 @@ const articlesData: Record<string, Article> = {
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          This becomes increasingly valuable as imaging volumes grow and multi-centre ecosystems become more operationally interconnected. Within dental imaging specifically, centralized radiology systems may increasingly become foundational to sustainable ecosystem expansion, integrated directly with teleradiology routers configured in the <a href="/technology" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">AI Ecosystem</a>.
+          This becomes increasingly valuable as imaging volumes grow and multi-centre ecosystems become more operationally interconnected. Within dental imaging specifically, centralized radiology systems may increasingly become foundational to sustainable ecosystem expansion, integrated directly with teleradiology routers configured in the <a href="/technology/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">AI Ecosystem</a>.
         </p>
 
         <h2 className="text-2xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 mt-12 mb-6">
@@ -601,7 +601,7 @@ const articlesData: Record<string, Article> = {
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          This is why workforce development is increasingly becoming part of broader ecosystem infrastructure strategy rather than an isolated educational activity. Review the parameters of our structured program under the SOVAKA <a href="/training-careers" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Training & Careers</a> pipeline.
+          This is why workforce development is increasingly becoming part of broader ecosystem infrastructure strategy rather than an isolated educational activity. Review the parameters of our structured program under the SOVAKA <a href="/training-careers/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Training & Careers</a> pipeline.
         </p>
 
         <h2 className="text-2xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 mt-12 mb-6">
@@ -621,7 +621,7 @@ const articlesData: Record<string, Article> = {
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          <a href="/about" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">SOVAKA Lifesciences</a> is focused on building connected imaging ecosystems designed around operational coordination, scalable workflows and intelligent infrastructure systems.
+          <a href="/about/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">SOVAKA Lifesciences</a> is focused on building connected imaging ecosystems designed around operational coordination, scalable workflows and intelligent infrastructure systems.
         </p>
       </>
     )
@@ -752,7 +752,7 @@ const articlesData: Record<string, Article> = {
         </ul>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          rather than through autonomous replacement models. Explore how we map these technologies in our dedicated <a href="/technology" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">AI Ecosystem</a>.
+          rather than through autonomous replacement models. Explore how we map these technologies in our dedicated <a href="/technology/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">AI Ecosystem</a>.
         </p>
 
         <h2 className="text-2xl font-semibold tracking-tight text-[#1A1A1A] dark:text-zinc-50 mt-12 mb-6">
@@ -813,8 +813,8 @@ const articlesData: Record<string, Article> = {
           <li>radiology expertise</li>
           <li>operational maturity</li>
           <li>workflow intelligence</li>
-          <li>workforce systems (such as our structured programs for <a href="/training-careers" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Training & Careers</a>)</li>
-          <li>scalable infrastructure (integrated within our regional <a href="/franchise" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Franchise ecosystem</a>)</li>
+          <li>workforce systems (such as our structured programs for <a href="/training-careers/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Training & Careers</a>)</li>
+          <li>scalable infrastructure (integrated within our regional <a href="/franchise/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">Franchise ecosystem</a>)</li>
           <li>AI-enabled coordination</li>
         </ul>
 
@@ -834,7 +834,7 @@ const articlesData: Record<string, Article> = {
         </p>
 
         <p className="text-[#4F4F4F] dark:text-zinc-400 leading-relaxed mb-6">
-          <a href="/about" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">SOVAKA Lifesciences</a> is focused on building connected imaging infrastructure systems designed to support the future ecosystem of intelligent dental radiology.
+          <a href="/about/" className="text-[#1A1A1A] dark:text-zinc-50 font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-800 transition-colors">SOVAKA Lifesciences</a> is focused on building connected imaging infrastructure systems designed to support the future ecosystem of intelligent dental radiology.
         </p>
       </>
     )

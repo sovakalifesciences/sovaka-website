@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function TechAISection() {
   const fadeUpVariant = {
@@ -153,13 +154,13 @@ export default function TechAISection() {
             <p className="text-sm text-zinc-500">Discover how SOVAKA builds the technology systems of tomorrow.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a 
-              href="/technology" 
+            <Link 
+              href="/technology/" 
               className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-zinc-950 font-medium rounded-sm transition-all duration-300 hover:bg-zinc-200 hover:scale-[0.98]"
             >
               <span>Explore The AI Ecosystem</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </Link>
           </div>
         </div>
 

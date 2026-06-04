@@ -97,17 +97,17 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <Link href="/training-careers" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
+                  <Link href="/training-careers/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
                     Training & Job Opportunities
                   </Link>
                 </li>
                 <li>
-                  <Link href="/technology" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
+                  <Link href="/technology/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
                     Intelligent Workflows
                   </Link>
                 </li>
                 <li>
-                  <Link href="/technology" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
+                  <Link href="/technology/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
                     AI Ecosystem
                   </Link>
                 </li>
@@ -176,9 +176,9 @@ export default function Footer() {
           {/* Legal / Bottom Links */}
           <div className="border-t border-zinc-100 dark:border-zinc-800 pt-8 flex flex-col md:flex-row justify-between gap-4">
             <div className="flex gap-6 text-xs text-[#666666] dark:text-zinc-400">
-              <Link href="/privacy-policy" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">Privacy Policy</Link>
-              <Link href="/terms-of-service" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">Terms of Service</Link>
-              <Link href="/disclosure" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">Disclosure</Link>
+              <Link href="/privacy-policy/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">Privacy Policy</Link>
+              <Link href="/terms-of-service/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">Terms of Service</Link>
+              <Link href="/disclosure/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">Disclosure</Link>
             </div>
             <p className="text-xs text-[#666666] dark:text-zinc-500">
               Clinical operations run by registered medical practitioners.

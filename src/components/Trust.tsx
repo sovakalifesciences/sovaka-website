@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function TrustSection() {
   const fadeUpVariant = {
@@ -172,19 +173,19 @@ export default function TrustSection() {
 
         {/* Subdued CTA Block */}
         <div className="border-t border-zinc-200 dark:border-zinc-800 pt-16 flex flex-col sm:flex-row gap-6 justify-start">
-          <a 
-            href="/about" 
+          <Link 
+            href="/about/" 
             className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-zinc-950 dark:bg-zinc-50 text-white dark:text-[#1A1A1A] font-medium rounded-sm transition-all duration-300 hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:scale-[0.98]"
           >
             <span>About SOVAKA Lifesciences</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
-          <a 
-            href="/journal" 
+          </Link>
+          <Link 
+            href="/journal/" 
             className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent text-[#1A1A1A] dark:text-zinc-100 font-medium rounded-sm border border-zinc-300 dark:border-zinc-800 transition-all duration-300 hover:border-zinc-500 dark:hover:border-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-900"
           >
             <span>View Insights</span>
-          </a>
+          </Link>
         </div>
 
       </div>
