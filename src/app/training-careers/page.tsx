@@ -896,7 +896,7 @@ export default function TrainingCareersPage() {
           </section>
 
           {/* Section: SOVAKA & NIDAAN Certified Professionals */}
-          <section className="mb-20 border-t border-zinc-200 dark:border-zinc-800 pt-16">
+          <section id="registry" className="mb-20 border-t border-zinc-200 dark:border-zinc-800 pt-16">
             <div className="max-w-[1200px]">
               <span className="block text-xs uppercase tracking-widest font-semibold text-[#666666] mb-4">
                 Verification Registry

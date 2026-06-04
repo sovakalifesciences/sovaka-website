@@ -64,7 +64,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
             
             {/* Brand block */}
-            <div className="lg:col-span-5 flex flex-col justify-between">
+            <div className="lg:col-span-3 flex flex-col justify-between">
               <div>
                 <img 
                   src="/logo.webp" 
@@ -73,101 +73,151 @@ export default function Footer() {
                   width={1024}
                   height={196}
                 />
-                <p className="text-[15px] text-[#666666] dark:text-zinc-400 max-w-[320px] leading-relaxed">
+                <p className="text-[15px] text-[#666666] dark:text-zinc-400 leading-relaxed">
                   SOVAKA Lifesciences is building the future infrastructure, talent pipelines, and intelligent interfaces of dental radiology.
                 </p>
               </div>
-              <p className="text-[15px] text-[#666666] dark:text-zinc-400 mt-8 lg:mt-0">
+              <p className="text-[13px] text-[#666666] dark:text-zinc-500 mt-8 lg:mt-0">
                 &copy; {new Date().getFullYear()} SOVAKA Lifesciences (OPC) Pvt. Ltd. All rights reserved.
               </p>
             </div>
 
-            {/* Quick Links */}
-            <div className="lg:col-span-3">
-              <h5 className="text-xs font-semibold text-[#1A1A1A] dark:text-zinc-100 uppercase tracking-wider mb-6">Ecosystem</h5>
-              <ul className="space-y-3 text-[17px] font-medium text-[#4F4F4F] dark:text-zinc-300">
-                <li>
+            {/* Our Ecosystem */}
+            <div className="lg:col-span-5 space-y-6">
+              <div>
+                <h5 className="text-xs font-semibold text-[#1A1A1A] dark:text-zinc-100 uppercase tracking-wider mb-3">Our Ecosystem</h5>
+                <p className="text-[14px] text-[#666666] dark:text-zinc-400 leading-relaxed font-normal">
+                  Building the future of dental imaging through infrastructure, workforce development, artificial intelligence, and integrated healthcare ecosystems.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {/* Pillar 1 */}
+                <div>
                   <a 
                     href="https://www.nidaandental.com" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300 inline-flex items-center gap-1"
+                    className="text-[16px] font-semibold text-[#1A1A1A] dark:text-zinc-100 hover:text-[#4F4F4F] dark:hover:text-zinc-300 transition-colors duration-300 inline-flex items-center gap-1 group"
                   >
-                    Nidaan CBCT & OPG Centre <span className="text-[10px] text-[#666666]">↗</span>
+                    Nidaan CBCT & OPG Centre
+                    <span className="text-[10px] text-[#666666] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">↗</span>
                   </a>
-                </li>
-                <li>
-                  <Link href="/training-careers/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
+                  <span className="block text-xs uppercase tracking-wider text-[#666666] dark:text-zinc-500 mt-0.5">
+                    Clinical Infrastructure
+                  </span>
+                </div>
+
+                {/* Pillar 2 */}
+                <div>
+                  <Link 
+                    href="/franchise/" 
+                    className="text-[16px] font-semibold text-[#1A1A1A] dark:text-zinc-100 hover:text-[#4F4F4F] dark:hover:text-zinc-300 transition-colors duration-300"
+                  >
+                    Franchise
+                  </Link>
+                  <span className="block text-xs uppercase tracking-wider text-[#666666] dark:text-zinc-500 mt-0.5">
+                    Expansion & Partnerships
+                  </span>
+                </div>
+
+                {/* Pillar 3 */}
+                <div>
+                  <Link 
+                    href="/training-careers/" 
+                    className="text-[16px] font-semibold text-[#1A1A1A] dark:text-zinc-100 hover:text-[#4F4F4F] dark:hover:text-zinc-300 transition-colors duration-300"
+                  >
                     Training & Job Opportunities
                   </Link>
-                </li>
+                  <span className="block text-xs uppercase tracking-wider text-[#666666] dark:text-zinc-500 mt-0.5">
+                    Workforce Development
+                  </span>
+                </div>
+
+                {/* Pillar 4 */}
+                <div>
+                  <Link 
+                    href="/technology/" 
+                    className="text-[16px] font-semibold text-[#1A1A1A] dark:text-zinc-100 hover:text-[#4F4F4F] dark:hover:text-zinc-300 transition-colors duration-300"
+                  >
+                    AI Ecosystem
+                  </Link>
+                  <span className="block text-xs uppercase tracking-wider text-[#666666] dark:text-zinc-500 mt-0.5">
+                    Technology & Automation
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="lg:col-span-2">
+              <h5 className="text-xs font-semibold text-[#1A1A1A] dark:text-zinc-100 uppercase tracking-wider mb-6">Quick Links</h5>
+              <ul className="space-y-3.5 text-[15px] font-medium text-[#4F4F4F] dark:text-zinc-300">
                 <li>
-                  <Link href="/technology/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
-                    Intelligent Workflows
+                  <Link href="/about/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
+                    About
                   </Link>
                 </li>
                 <li>
-                  <Link href="/technology/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
-                    AI Ecosystem
+                  <Link href="/contact/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
+                    Contact
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/privacy-policy/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms-of-service/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
+                    Terms of Service
                   </Link>
                 </li>
               </ul>
             </div>
 
             {/* Contact Details */}
-            <div className="lg:col-span-4 space-y-4">
+            <div className="lg:col-span-2 space-y-5">
               <h5 className="text-xs font-semibold text-[#1A1A1A] dark:text-zinc-100 uppercase tracking-wider mb-6">Contact</h5>
-              <ul className="space-y-3 text-[17px] font-medium text-[#4F4F4F] dark:text-zinc-300">
-                <li className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-[#666666] dark:text-zinc-500" />
-                  <a href="mailto:sovakalifesciences@gmail.com" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">sovakalifesciences@gmail.com</a>
+              <ul className="space-y-3.5 text-[15px] font-medium text-[#4F4F4F] dark:text-zinc-300">
+                <li className="flex items-center gap-2">
+                  <Mail className="w-3.5 h-3.5 text-[#666666] dark:text-zinc-500 shrink-0" />
+                  <a href="mailto:sovakalifesciences@gmail.com" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300 truncate text-[14px]">sovakalifesciences@gmail.com</a>
                 </li>
-                <li className="flex items-start gap-3">
-                  <Phone className="w-4 h-4 text-[#666666] dark:text-zinc-500 mt-0.5" />
-                  <div className="flex flex-col gap-1 text-[17px] font-medium text-[#4F4F4F] dark:text-zinc-300">
+                <li className="flex items-start gap-2">
+                  <Phone className="w-3.5 h-3.5 text-[#666666] dark:text-zinc-500 mt-1 shrink-0" />
+                  <div className="flex flex-col gap-1 text-[14px]">
                     <a href="tel:+919307668998" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">+91 93076 68998</a>
                     <a href="tel:+919823099115" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">+91 98230 99115</a>
                     <a href="tel:+919823005337" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">+91 98230 05337</a>
                   </div>
                 </li>
-                <li className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-[#666666] dark:text-zinc-500 mt-0.5" />
-                  <span className="leading-relaxed">Pune, Maharashtra, India</span>
+                <li className="flex items-start gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-[#666666] dark:text-zinc-500 mt-0.5 shrink-0" />
+                  <span className="leading-normal text-[14px]">Pune, Maharashtra, India</span>
                 </li>
               </ul>
               
-              <div className="pt-4 flex flex-col gap-4">
-                <div className="flex gap-3">
-                  <a 
-                    href="https://www.linkedin.com/in/dr-akshay-shah-cbct/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="w-12 h-12 rounded-sm bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-[#666666] hover:text-[#1A1A1A] dark:hover:text-zinc-100 hover:bg-sand-100 hover:border-sand-200 transition-all duration-300" 
-                    aria-label="LinkedIn"
-                  >
-                    <LinkedinIcon className="w-[26px] h-[26px]" />
-                  </a>
-                  <a 
-                    href="https://www.instagram.com/sovaka.lifesciences/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="w-12 h-12 rounded-sm bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-[#666666] hover:text-[#1A1A1A] dark:hover:text-zinc-100 hover:bg-sand-100 hover:border-sand-200 transition-all duration-300" 
-                    aria-label="Instagram"
-                  >
-                    <InstagramIcon className="w-[26px] h-[26px]" />
-                  </a>
-                </div>
-                <div className="border-t border-zinc-100 dark:border-zinc-800/80 pt-4 mt-2">
-                  <span className="block text-xs font-semibold text-[#666666] dark:text-zinc-500 uppercase tracking-wider mb-2">Connected Infrastructure</span>
-                  <a 
-                    href="https://www.nidaandental.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-flex items-center gap-1.5 text-xs text-[#4F4F4F] dark:text-zinc-400 hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300 font-medium"
-                  >
-                    Nidaan CBCT & OPG Centre <span className="text-[10px] text-[#666666]">↗</span>
-                  </a>
-                </div>
+              <div className="pt-2 flex gap-3">
+                <a 
+                  href="https://www.linkedin.com/in/dr-akshay-shah-cbct/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-sm bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-[#666666] hover:text-[#1A1A1A] dark:hover:text-zinc-100 hover:bg-sand-100 hover:border-sand-200 transition-all duration-300" 
+                  aria-label="LinkedIn"
+                >
+                  <LinkedinIcon className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/sovaka.lifesciences/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-sm bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-[#666666] hover:text-[#1A1A1A] dark:hover:text-zinc-100 hover:bg-sand-100 hover:border-sand-200 transition-all duration-300" 
+                  aria-label="Instagram"
+                >
+                  <InstagramIcon className="w-5 h-5" />
+                </a>
               </div>
             </div>
 
