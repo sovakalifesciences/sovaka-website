@@ -43,7 +43,7 @@ export default function FranchisePage() {
               {/* Ecosystem Badge */}
               <div className="mb-8">
                 <span className="inline-block uppercase tracking-[0.15em] text-xs font-semibold text-[#1A1A1A] dark:text-zinc-300 bg-sand-100 dark:bg-zinc-900 border border-sand-200 dark:border-zinc-800 px-3 py-1.5 rounded-sm">
-                  Ecosystem Infrastructure
+                  Franchise Network
                 </span>
               </div>
 
