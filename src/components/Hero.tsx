@@ -58,9 +58,9 @@ export default function HeroSection() {
         className="absolute inset-0 w-full h-full opacity-50 dark:opacity-20 pointer-events-none"
         aria-hidden="true"
       >
-        <div className="absolute right-[-10%] top-[-5%] w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] rounded-full border border-zinc-300/20 dark:border-zinc-700/10" />
-        <div className="absolute right-[2%] top-[5%] w-[60vw] h-[60vw] max-w-[650px] max-h-[650px] rounded-full border border-zinc-300/30 dark:border-zinc-700/15" />
-        <div className="absolute right-[12%] top-[15%] w-[42vw] h-[42vw] max-w-[450px] max-h-[450px] rounded-full border border-zinc-300/40 dark:border-zinc-700/20" />
+        <div className="absolute right-[-10%] top-[-5%] w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] rounded-full border border-dashed border-zinc-300/30 dark:border-zinc-700/15" />
+        <div className="absolute right-[2%] top-[5%] w-[60vw] h-[60vw] max-w-[650px] max-h-[650px] rounded-full border border-dashed border-zinc-300/40 dark:border-zinc-700/20" />
+        <div className="absolute right-[12%] top-[15%] w-[42vw] h-[42vw] max-w-[450px] max-h-[450px] rounded-full border border-dashed border-zinc-300/50 dark:border-zinc-700/25" />
       </div>
 
       <div className="max-w-[1440px] mx-auto w-full px-6 md:px-12 lg:px-16 xl:px-20 relative z-20">
@@ -144,7 +144,7 @@ export default function HeroSection() {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="relative w-full max-w-[580px] sm:max-w-[680px] md:max-w-[780px] lg:max-w-none aspect-[1024/652] flex items-center justify-center">
+            <div className="relative w-full max-w-[480px] lg:max-w-[520px] xl:max-w-[560px] aspect-[4/5] flex items-center justify-center">
               
               {/* Premium Depth System: Ambient Breathing Illumination Glow */}
               <motion.div
@@ -157,7 +157,7 @@ export default function HeroSection() {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle_at_center,_rgba(216,207,192,0.45)_0%,_transparent_70%)] dark:bg-[radial-gradient(circle_at_center,_rgba(30,41,59,0.3)_0%,_transparent_70%)] blur-3xl pointer-events-none"
+                className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle_at_center,_rgba(212,212,216,0.45)_0%,_transparent_70%)] dark:bg-[radial-gradient(circle_at_center,_rgba(30,41,59,0.35)_0%,_transparent_70%)] blur-3xl pointer-events-none"
               />
 
               {/* Soft ambient shadow below the floating graphic */}
@@ -197,8 +197,12 @@ export default function HeroSection() {
                       src="/hero-ecosystem.webp"
                       alt="SOVAKA Dental Imaging Ecosystem"
                       className="w-full h-full object-contain select-none pointer-events-none rounded-none dark:invert dark:opacity-90 transition-all duration-300"
-                      width={1024}
-                      height={652}
+                      style={{
+                        maskImage: 'radial-gradient(circle at center, black 58%, transparent 90%)',
+                        WebkitMaskImage: 'radial-gradient(circle at center, black 58%, transparent 90%)'
+                      }}
+                      width={800}
+                      height={1000}
                       loading="eager"
                     />
                   </div>
