@@ -30,6 +30,15 @@ function ContactForm() {
       ? `https://formspree.io/f/${formId}` 
       : "https://formspree.io/sovakalifesciences@gmail.com";
 
+    // Retrieve persistent UTMs from session storage to attach to form payload
+    const utmParams: Record<string, string> = {};
+    if (typeof window !== "undefined") {
+      ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach((param) => {
+        const val = sessionStorage.getItem(param);
+        if (val) utmParams[param] = val;
+      });
+    }
+
     try {
       const response = await fetch(endpoint, {
         method: "POST",
@@ -37,17 +46,47 @@ function ContactForm() {
           "Content-Type": "application/json",
           "Accept": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          ...utmParams,
+          formContext: context || "general",
+        }),
       });
 
       if (response.ok) {
         if (typeof window !== "undefined") {
-          const dataLayer = (window as any).dataLayer || [];
-          (window as any).dataLayer = dataLayer;
+          const w = window as any;
+          const dataLayer = w.dataLayer || [];
+          w.dataLayer = dataLayer;
+          
+          const eventId = "contact_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9);
+
           dataLayer.push({
             event: "contact_form_submission",
-            formType: context || "general"
+            formType: context || "general",
+            eventId: eventId
           });
+
+          // Meta Pixel Client Trigger
+          if (w.fbq) {
+            w.fbq("track", "Lead", {
+              content_name: "Contact Form Inquiry",
+              content_category: context || "general",
+              eventID: eventId
+            });
+          }
+
+          // Meta CAPI Server Trigger
+          if (w.sendMetaCAPI) {
+            w.sendMetaCAPI("Lead", eventId, {
+              email: formData.email,
+              phone: formData.phone,
+              name: formData.name
+            }, {
+              content_name: "Contact Form Inquiry",
+              content_category: context || "general"
+            });
+          }
         }
         setSubmitted(true);
         setFormData({ name: "", email: "", phone: "", message: "" });

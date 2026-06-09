@@ -135,12 +135,93 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
+              // 1. GTM Script
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
               })(window,document,'script','dataLayer','GTM-W52S7MQG');
 
+              // 2. UTM Parameter Capture & Persistence
+              (function() {
+                var utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+                var urlParams = new URLSearchParams(window.location.search);
+                utmParams.forEach(function(param) {
+                  var val = urlParams.get(param);
+                  if (val) {
+                    sessionStorage.setItem(param, val);
+                  }
+                });
+              })();
+
+              // 3. Meta Pixel Bootstrap
+              !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+              n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+              document,'script','https://connect.facebook.net/en_US/fbevents.js');
+              var pixelId = '968593457102948'; 
+              fbq('init', pixelId);
+              fbq('track', 'PageView');
+
+              // 4. Meta CAPI Helper & Deduplication
+              function generateEventId(prefix) {
+                return prefix + '_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+              }
+
+              function sendMetaCAPI(eventName, eventId, extraUserData, customData) {
+                var fbp = document.cookie.split('; ').find(function(row) { return row.indexOf('_fbp=') === 0; });
+                fbp = fbp ? fbp.split('=')[1] : '';
+                var fbc = document.cookie.split('; ').find(function(row) { return row.indexOf('_fbc=') === 0; });
+                fbc = fbc ? fbc.split('=')[1] : '';
+                
+                var utmParams = {};
+                ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function(param) {
+                  var val = sessionStorage.getItem(param);
+                  if (val) utmParams[param] = val;
+                });
+
+                var payload = {
+                  event_name: eventName,
+                  event_time: Math.floor(Date.now() / 1000),
+                  event_id: eventId,
+                  event_source_url: window.location.href,
+                  user_data: {
+                    fbp: fbp,
+                    fbc: fbc
+                  },
+                  custom_data: {}
+                };
+
+                if (extraUserData) {
+                  for (var k in extraUserData) {
+                    if (extraUserData.hasOwnProperty(k)) {
+                      payload.user_data[k] = extraUserData[k];
+                    }
+                  }
+                }
+
+                for (var u in utmParams) {
+                  payload.custom_data[u] = utmParams[u];
+                }
+                if (customData) {
+                  for (var c in customData) {
+                    if (customData.hasOwnProperty(c)) {
+                      payload.custom_data[c] = customData[c];
+                    }
+                  }
+                }
+
+                fetch('/api/capi.php', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(payload)
+                }).catch(function(err) {
+                  console.error('CAPI Dispatch Failed:', err);
+                });
+              }
+
+              // 5. Global Click Interceptor
               document.addEventListener('click', function(e) {
                 var anchor = e.target.closest('a');
                 if (!anchor) return;
@@ -148,36 +229,60 @@ export default function RootLayout({
                 if (!href) return;
                 window.dataLayer = window.dataLayer || [];
                 
+                var eventId = '';
+                
                 if (href.indexOf('forms.gle/geqADY2PEuscsvyb9') > -1) {
+                  eventId = generateEventId('franchise');
                   window.dataLayer.push({
                     event: 'franchise_form_submission',
                     formType: 'franchise',
-                    method: 'outbound_click'
+                    method: 'outbound_click',
+                    eventId: eventId
                   });
+                  fbq('track', 'Lead', { content_name: 'Franchise Enquiry', eventID: eventId });
+                  sendMetaCAPI('Lead', eventId, {}, { content_name: 'Franchise Enquiry' });
                 } else if (href.indexOf('forms.gle/vGUGby9hmxY3wDTW8') > -1) {
+                  eventId = generateEventId('technician');
                   window.dataLayer.push({
                     event: 'technician_form_submission',
                     formType: 'technician',
-                    method: 'outbound_click'
+                    method: 'outbound_click',
+                    eventId: eventId
                   });
+                  fbq('track', 'Lead', { content_name: 'Technician Enquiry', eventID: eventId });
+                  sendMetaCAPI('Lead', eventId, {}, { content_name: 'Technician Enquiry' });
                 } else if (href.indexOf('forms.gle/icf1jPDAn3brd1gE6') > -1) {
+                  eventId = generateEventId('investor');
                   window.dataLayer.push({
                     event: 'investor_form_submission',
                     formType: 'investor',
-                    method: 'outbound_click'
+                    method: 'outbound_click',
+                    eventId: eventId
                   });
+                  fbq('track', 'Lead', { content_name: 'Investor Enquiry', eventID: eventId });
+                  sendMetaCAPI('Lead', eventId, {}, { content_name: 'Investor Enquiry' });
                 } else if (href.indexOf('mailto:') === 0) {
+                  var email = href.replace('mailto:', '');
+                  eventId = generateEventId('email');
                   window.dataLayer.push({
                     event: 'email_click',
-                    email: href.replace('mailto:', ''),
-                    method: 'mailto_click'
+                    email: email,
+                    method: 'mailto_click',
+                    eventId: eventId
                   });
+                  fbq('track', 'Contact', { content_name: 'Email Click', eventID: eventId });
+                  sendMetaCAPI('Contact', eventId, { email: email }, { content_name: 'Email Click' });
                 } else if (href.indexOf('tel:') === 0) {
+                  var phone = href.replace('tel:', '');
+                  eventId = generateEventId('phone');
                   window.dataLayer.push({
                     event: 'phone_click',
-                    phone: href.replace('tel:', ''),
-                    method: 'tel_click'
+                    phone: phone,
+                    method: 'tel_click',
+                    eventId: eventId
                   });
+                  fbq('track', 'Contact', { content_name: 'Phone Click', eventID: eventId });
+                  sendMetaCAPI('Contact', eventId, { phone: phone }, { content_name: 'Phone Click' });
                 } else if (href.indexOf('linkedin.com/in/dr-akshay-shah-cbct') > -1) {
                   window.dataLayer.push({
                     event: 'social_click',
@@ -196,6 +301,19 @@ export default function RootLayout({
                     destination: href,
                     method: 'outbound_click'
                   });
+                }
+
+                // Append persistent UTM parameters to outbound Google Forms links
+                if (href.indexOf('forms.gle/') > -1 || href.indexOf('google.com/forms/') > -1) {
+                  var utmQuery = [];
+                  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function(param) {
+                    var val = sessionStorage.getItem(param);
+                    if (val) utmQuery.push(param + '=' + encodeURIComponent(val));
+                  });
+                  if (utmQuery.length > 0) {
+                    var newHref = href + (href.indexOf('?') > -1 ? '&' : '?') + utmQuery.join('&');
+                    anchor.setAttribute('href', newHref);
+                  }
                 }
               });
             `,
