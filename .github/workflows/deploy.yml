@@ -26,41 +26,145 @@ jobs:
         env:
           NEXT_PUBLIC_FORMSPREE_FORM_ID: ${{ secrets.NEXT_PUBLIC_FORMSPREE_FORM_ID }}
 
-
-
-      - name: Diagnostic SFTP Connection Test
+      # ============================================================
+      # DIAGNOSTIC STEP 1: Secret Presence Check
+      # Prints Present/Missing for each secret. Never prints values.
+      # ============================================================
+      - name: 'Diagnostic 1: Secret Presence Check'
         continue-on-error: true
         run: |
-          node -e "
-          const net = require('net');
-          const host = '${{ secrets.SFTP_SERVER || secrets.FTP_SERVER || secrets.FTP_HOST }}' || '91.108.101.182';
-          const port = parseInt('${{ secrets.SFTP_PORT || secrets.FTP_PORT }}') || 65002;
-          console.log('Attempting diagnostic TCP connection to ' + host + ':' + port + '...');
-          const socket = net.connect(port, host, () => {
-            console.log('SUCCESS: TCP socket established on port ' + port + '!');
-            socket.destroy();
-            process.exit(0);
-          });
-          socket.setTimeout(10000);
-          socket.on('timeout', () => {
-            console.error('ERROR: Connection timed out on port ' + port + '. Please verify the network path and firewall settings.');
-            socket.destroy();
-            process.exit(1);
-          });
-          socket.on('error', (err) => {
-            console.error('ERROR: Connection failed on port ' + port + ':', err.message);
-            process.exit(1);
-          });
-          "
+          echo "========================================"
+          echo "DIAGNOSTIC 1: Secret Presence Check"
+          echo "========================================"
 
+          if [ -n "$SFTP_SERVER_CHECK" ]; then
+            echo "SFTP_SERVER:   Present"
+          else
+            echo "SFTP_SERVER:   Missing"
+          fi
+
+          if [ -n "$SFTP_PORT_CHECK" ]; then
+            echo "SFTP_PORT:     Present"
+          else
+            echo "SFTP_PORT:     Missing"
+          fi
+
+          if [ -n "$SFTP_USERNAME_CHECK" ]; then
+            echo "SFTP_USERNAME: Present"
+          else
+            echo "SFTP_USERNAME: Missing"
+          fi
+
+          if [ -n "$SFTP_PASSWORD_CHECK" ]; then
+            echo "SFTP_PASSWORD: Present (length=${#SFTP_PASSWORD_CHECK})"
+          else
+            echo "SFTP_PASSWORD: Missing"
+          fi
+
+          echo "========================================"
+        env:
+          SFTP_SERVER_CHECK: ${{ secrets.SFTP_SERVER }}
+          SFTP_PORT_CHECK: ${{ secrets.SFTP_PORT }}
+          SFTP_USERNAME_CHECK: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD_CHECK: ${{ secrets.SFTP_PASSWORD }}
+
+      # ============================================================
+      # DIAGNOSTIC STEP 2: Raw TCP Connection Test (nc -zv)
+      # Proves whether the GitHub runner can reach port 65002.
+      # Uses hardcoded values so this test works even if secrets
+      # are missing.
+      # ============================================================
+      - name: 'Diagnostic 2: TCP Connection Test (nc -zv)'
+        continue-on-error: true
+        run: |
+          echo "========================================"
+          echo "DIAGNOSTIC 2: TCP Connection Test"
+          echo "========================================"
+
+          # Determine target from secrets, fall back to known values
+          TARGET_HOST="${SFTP_SERVER_VAL:-91.108.101.182}"
+          TARGET_PORT="${SFTP_PORT_VAL:-65002}"
+
+          echo "Target: ${TARGET_HOST}:${TARGET_PORT}"
+          echo ""
+
+          echo "--- Test A: nc -zv (TCP connect) ---"
+          timeout 15 nc -zv "$TARGET_HOST" "$TARGET_PORT" 2>&1 || echo "nc exited with code $?"
+          echo ""
+
+          echo "--- Test B: nc -zv port 21 (FTP control) ---"
+          timeout 10 nc -zv "$TARGET_HOST" 21 2>&1 || echo "nc exited with code $?"
+          echo ""
+
+          echo "--- Test C: nc -zv port 22 (standard SSH) ---"
+          timeout 10 nc -zv "$TARGET_HOST" 22 2>&1 || echo "nc exited with code $?"
+          echo ""
+
+          echo "========================================"
+        env:
+          SFTP_SERVER_VAL: ${{ secrets.SFTP_SERVER }}
+          SFTP_PORT_VAL: ${{ secrets.SFTP_PORT }}
+
+      # ============================================================
+      # DIAGNOSTIC STEP 3: SSH Handshake Test (ssh -v)
+      # Captures verbose SSH output to show exactly:
+      #   - Whether TCP connection establishes
+      #   - Whether SSH key exchange completes
+      #   - Whether authentication methods are offered
+      #   - Exact point of failure
+      # Uses a non-interactive, timeout-bounded command.
+      # ============================================================
+      - name: 'Diagnostic 3: SSH Handshake Test (ssh -v)'
+        continue-on-error: true
+        run: |
+          echo "========================================"
+          echo "DIAGNOSTIC 3: SSH Handshake & Auth Stage"
+          echo "========================================"
+
+          TARGET_HOST="${SFTP_SERVER_VAL:-91.108.101.182}"
+          TARGET_PORT="${SFTP_PORT_VAL:-65002}"
+
+          echo "Target: ${TARGET_HOST}:${TARGET_PORT}"
+          echo "Timeout: 15 seconds"
+          echo ""
+
+          # Run SSH with verbose output, no interactive prompts,
+          # batch mode (fail immediately if password auth is needed
+          # and no key is available), 15s connect timeout.
+          # This tells us exactly how far the handshake gets.
+          timeout 20 ssh -v \
+            -o ConnectTimeout=15 \
+            -o StrictHostKeyChecking=no \
+            -o UserKnownHostsFile=/dev/null \
+            -o BatchMode=yes \
+            -o PreferredAuthentications=publickey,password \
+            -p "$TARGET_PORT" \
+            "diagnostic_test@${TARGET_HOST}" \
+            "echo connected" 2>&1 || true
+
+          echo ""
+          echo "========================================"
+          echo "INTERPRETATION GUIDE:"
+          echo "  'Connection established' = TCP layer OK"
+          echo "  'SSH2_MSG_KEXINIT'       = SSH handshake started"
+          echo "  'SSH2_MSG_NEWKEYS'       = Key exchange completed"
+          echo "  'Authentications that can continue' = Auth stage reached"
+          echo "  'Permission denied'      = Credentials rejected"
+          echo "  'Connection timed out'   = Network/firewall blocked"
+          echo "========================================"
+        env:
+          SFTP_SERVER_VAL: ${{ secrets.SFTP_SERVER }}
+          SFTP_PORT_VAL: ${{ secrets.SFTP_PORT }}
+
+      # ============================================================
+      # ACTUAL DEPLOY STEP
+      # ============================================================
       - name: Deploy via SFTP to Hostinger
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          username: ${{ secrets.SFTP_USERNAME || 'u156087372' }}
-          server: ${{ secrets.SFTP_SERVER || secrets.FTP_SERVER || secrets.FTP_HOST || '91.108.101.182' }}
-          port: ${{ secrets.SFTP_PORT || secrets.FTP_PORT || 65002 }}
-          password: ${{ secrets.SFTP_PASSWORD || secrets.FTP_PASSWORD }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          server: ${{ secrets.SFTP_SERVER }}
+          port: ${{ secrets.SFTP_PORT }}
+          password: ${{ secrets.SFTP_PASSWORD }}
           local_path: './out/*'
           remote_path: 'domains/sovakalifesciences.com/public_html/'
-
-
