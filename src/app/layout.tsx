@@ -96,6 +96,7 @@ const organizationJsonLd = {
   "sameAs": [
     "https://www.linkedin.com/company/sovaka-lifesciences",
     "https://www.instagram.com/sovakalifesciences",
+    "https://www.facebook.com/profile.php?id=61591194501718",
     "https://www.nidaandental.com"
   ],
   "knowsAbout": [

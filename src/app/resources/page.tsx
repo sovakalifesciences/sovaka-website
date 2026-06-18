@@ -390,7 +390,7 @@ export default function ResourcesPage() {
                   },
                   {
                     name: "Facebook",
-                    url: "https://www.facebook.com/sovaka.lifesciences/",
+                    url: "https://www.facebook.com/profile.php?id=61591194501718",
                     desc: "Ecosystem notes",
                     icon: <FacebookIcon className="w-5 h-5" />
                   }
