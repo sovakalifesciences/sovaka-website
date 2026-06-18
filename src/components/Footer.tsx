@@ -42,6 +42,23 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="26"
+    height="26"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
 export default function Footer() {
   return (
     <div className="w-full bg-[#FCFAF6] dark:bg-[#0a0a0a] border-t border-sand-200 dark:border-zinc-800 pt-20 pb-16">
@@ -222,6 +239,15 @@ export default function Footer() {
                   aria-label="Instagram"
                 >
                   <InstagramIcon className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61591194501718" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-sm bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-[#666666] hover:text-[#1A1A1A] dark:hover:text-zinc-100 hover:bg-sand-100 hover:border-sand-200 transition-all duration-300" 
+                  aria-label="Facebook"
+                >
+                  <FacebookIcon className="w-5 h-5" />
                 </a>
               </div>
             </div>
