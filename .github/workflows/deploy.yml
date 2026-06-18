@@ -30,13 +30,14 @@ jobs:
       # DIAGNOSTIC STEP 1: Secret Presence Check
       # Prints Present/Missing for each secret. Never prints values.
       # ============================================================
-      - name: 'Diagnostic 1: Secret Presence Check'
+      - name: 'Diagnostic 1: Secret Presence & Length Check'
         continue-on-error: true
         run: |
           echo "========================================"
-          echo "DIAGNOSTIC 1: Secret Presence Check"
+          echo "DIAGNOSTIC 1: Secret Presence & Length"
           echo "========================================"
 
+          # --- Presence ---
           if [ -n "$SFTP_SERVER_CHECK" ]; then
             echo "SFTP_SERVER:   Present"
           else
@@ -56,9 +57,30 @@ jobs:
           fi
 
           if [ -n "$SFTP_PASSWORD_CHECK" ]; then
-            echo "SFTP_PASSWORD: Present (length=${#SFTP_PASSWORD_CHECK})"
+            echo "SFTP_PASSWORD: Present"
           else
             echo "SFTP_PASSWORD: Missing"
+          fi
+
+          echo ""
+          echo "--- String Lengths ---"
+          echo "SFTP_SERVER   length: ${#SFTP_SERVER_CHECK}   (expected: 14 for 91.108.101.182)"
+          echo "SFTP_PORT     length: ${#SFTP_PORT_CHECK}   (expected: 5 for 65002)"
+          echo "SFTP_USERNAME length: ${#SFTP_USERNAME_CHECK}   (expected: 37 for u156087372.sovakalifesciences.com)"
+          echo "SFTP_PASSWORD length: ${#SFTP_PASSWORD_CHECK}"
+
+          echo ""
+          echo "--- Hidden Character Detection ---"
+          # Print hex of first and last 2 bytes to detect spaces/newlines
+          if [ -n "$SFTP_SERVER_CHECK" ]; then
+            FIRST2=$(echo -n "$SFTP_SERVER_CHECK" | head -c 2 | xxd -p)
+            LAST2=$(echo -n "$SFTP_SERVER_CHECK" | tail -c 2 | xxd -p)
+            echo "SFTP_SERVER   first2hex: $FIRST2  last2hex: $LAST2  (expect: 3931=91  3832=82)"
+          fi
+          if [ -n "$SFTP_PORT_CHECK" ]; then
+            FIRST2=$(echo -n "$SFTP_PORT_CHECK" | head -c 2 | xxd -p)
+            LAST2=$(echo -n "$SFTP_PORT_CHECK" | tail -c 2 | xxd -p)
+            echo "SFTP_PORT     first2hex: $FIRST2  last2hex: $LAST2  (expect: 3635=65  3032=02)"
           fi
 
           echo "========================================"
