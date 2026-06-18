@@ -35,3 +35,4 @@ jobs:
           port: 21
           local-dir: ./out/
           server-dir: domains/sovakalifesciences.com/public_html/
+          dangerous-clean-slate: true
