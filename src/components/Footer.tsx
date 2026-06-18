@@ -159,6 +159,11 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/resources/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
+                    Resources
+                  </Link>
+                </li>
+                <li>
                   <Link href="/contact/" className="hover:text-[#1A1A1A] dark:hover:text-zinc-100 transition-colors duration-300">
                     Contact
                   </Link>

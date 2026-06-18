@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/franchise",
     "/training-careers",
     "/technology",
+    "/resources",
     "/journal",
     "/insights/future-of-intelligent-dental-imaging-infrastructure-india",
     "/insights/addressing-the-workforce-gap-in-cbct-opg-imaging",
@@ -26,6 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1.0 : route === "/franchise" || route === "/training-careers" || route === "/technology" ? 0.9 : 0.6,
+    priority: route === "" ? 1.0 : route === "/franchise" || route === "/training-careers" || route === "/technology" || route === "/resources" ? 0.9 : 0.6,
   }));
 }
