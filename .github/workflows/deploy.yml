@@ -103,24 +103,32 @@ jobs:
           echo "DIAGNOSTIC 2: TCP Connection Test"
           echo "========================================"
 
-          # Determine target from secrets, fall back to known values
-          TARGET_HOST="${SFTP_SERVER_VAL:-91.108.101.182}"
-          TARGET_PORT="${SFTP_PORT_VAL:-65002}"
-
-          echo "Target: ${TARGET_HOST}:${TARGET_PORT}"
+          echo ""
+          echo "--- Test A: HARDCODED baseline (91.108.101.182:65002) ---"
+          timeout 15 nc -zv 91.108.101.182 65002 2>&1 || echo "nc exited with code $?"
           echo ""
 
-          echo "--- Test A: nc -zv (TCP connect) ---"
-          timeout 15 nc -zv "$TARGET_HOST" "$TARGET_PORT" 2>&1 || echo "nc exited with code $?"
+          echo "--- Test B: HARDCODED baseline (91.108.101.182:21) ---"
+          timeout 10 nc -zv 91.108.101.182 21 2>&1 || echo "nc exited with code $?"
           echo ""
 
-          echo "--- Test B: nc -zv port 21 (FTP control) ---"
-          timeout 10 nc -zv "$TARGET_HOST" 21 2>&1 || echo "nc exited with code $?"
+          echo "--- Test C: Using SECRET values ---"
+          timeout 15 nc -zv "$SFTP_SERVER_VAL" "$SFTP_PORT_VAL" 2>&1 || echo "nc exited with code $?"
           echo ""
 
-          echo "--- Test C: nc -zv port 22 (standard SSH) ---"
-          timeout 10 nc -zv "$TARGET_HOST" 22 2>&1 || echo "nc exited with code $?"
-          echo ""
+          echo "--- Test D: Comparison ---"
+          if [ "$SFTP_SERVER_VAL" = "91.108.101.182" ]; then
+            echo "SFTP_SERVER value MATCHES hardcoded IP"
+          else
+            echo "SFTP_SERVER value DOES NOT MATCH hardcoded IP"
+            echo "Secret length: ${#SFTP_SERVER_VAL}, Hardcoded length: 14"
+          fi
+          if [ "$SFTP_PORT_VAL" = "65002" ]; then
+            echo "SFTP_PORT value MATCHES hardcoded port"
+          else
+            echo "SFTP_PORT value DOES NOT MATCH hardcoded port"
+            echo "Secret length: ${#SFTP_PORT_VAL}, Hardcoded length: 5"
+          fi
 
           echo "========================================"
         env:
