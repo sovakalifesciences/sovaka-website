@@ -22,11 +22,11 @@ export default function Header() {
   }, []);
 
   const navItems = [
+    { label: "About", href: "/about/" },
     { label: "Franchise", href: "/franchise/" },
     { label: "Training & Job Opportunities", href: "/training-careers/" },
     { label: "AI Ecosystem", href: "/technology/" },
     { label: "Resources", href: "/resources/" },
-    { label: "About", href: "/about/" },
     { label: "Contact", href: "/contact/", isCTA: true },
   ];
 
