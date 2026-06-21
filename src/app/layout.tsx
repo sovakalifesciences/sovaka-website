@@ -60,6 +60,9 @@ export const metadata: Metadata = {
     description: "SOVAKA LifeSciences unifies dental imaging infrastructure, teleradiology workflows, technician training, and AI software to modernize oral radiology.",
     images: ["/sovaka-og-image.png"],
   },
+  verification: {
+    google: "U_CAg3i5ls0FVxJ15JH-G9THC_Y1idHnC2V-mn_Uwu8",
+  },
 };
 
 const organizationJsonLd = {
